@@ -36,9 +36,9 @@ import Component from "vue-class-component";
 })
 //TODO 更改类名
 export default class Table extends Vue {
-  size: string;
-  skin: string;
-  even: boolean;
+  size: string | any;
+  skin: string | any;
+  even: boolean | any;
   get attr() {
     let a = {};
     if (this.even) {

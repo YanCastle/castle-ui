@@ -37,8 +37,8 @@ import Component from "vue-class-component";
 })
 //TODO 更改类名
 export default class Badge extends Vue {
-  type: string;
-  color: string;
+  type: string | any;
+  color: string | any;
   get classes() {
     let a = [];
     switch (this.type) {

@@ -1,12 +1,11 @@
 <template>
-    <form class="layui-form" action="">
+    <div class="layui-form" action="">
         <slot></slot>
-    </form>
+    </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 @Component({

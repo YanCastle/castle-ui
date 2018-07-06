@@ -15,7 +15,7 @@ import Component from "vue-class-component";
     //     type:String,
     //     default:()=>{return {}}
     // }
-    Accordion: {
+    accordion: {
       type: Boolean,
       default: false
     }
@@ -24,10 +24,10 @@ import Component from "vue-class-component";
 })
 //TODO 更改类名
 export default class Collapse extends Vue {
-  Accordion: boolean;
+  accordion: boolean | any;
   get attr() {
     let r = {};
-    if (this.Accordion) {
+    if (this.accordion) {
       r["lay-accordion"] = "lay-accordion";
     }
     return r;

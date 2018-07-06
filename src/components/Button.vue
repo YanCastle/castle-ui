@@ -41,9 +41,9 @@ import Component from "vue-class-component";
 })
 //TODO 更改类名
 export default class Button extends Vue {
-  type: string;
-  size: string;
-  radius: string;
+  type: string | any;
+  size: string | any;
+  radius: string | any;
   get classes() {
     let c = ["layui-btn"];
     if (this.type) {

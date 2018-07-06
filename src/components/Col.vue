@@ -17,19 +17,29 @@ import Component from "vue-class-component";
     },
     lg: {
       type: [Number, String],
-      default: 12
+      default: 0
     },
     md: {
       type: [Number, String],
-      default: 12
+      default: 0
     },
     sm: {
       type: [Number, String],
-      default: 12
+      default: 0
     },
     xs: {
       type: [Number, String],
-      default: 12
+      default: 0
+    },
+    color: {
+      type: String,
+      default: "",
+      validator: v => {
+        return (
+          ["", "red", "orange", "green", "cyan", "blue", "black"].indexOf(v) >
+          -1
+        );
+      }
     },
     space: {
       type: [Number, String],
@@ -66,27 +76,57 @@ import Component from "vue-class-component";
 })
 //TODO 更改类名
 export default class Col extends Vue {
-  span: number;
-  lg: number;
-  md: number;
-  xs: number;
-  sm: number;
-  space: number;
-  offset: number;
-  "offset-lg": number;
-  "offset-md": number;
-  "offset-sm": number;
-  "offset-xs": number;
+  span: number | any;
+  lg: number | any;
+  md: number | any;
+  xs: number | any;
+  sm: number | any;
+  space: number | any;
+  offset: number | any;
+  "offset-lg": number | any;
+  "offset-md": number | any;
+  "offset-sm": number | any;
+  "offset-xs": number | any;
+  color: string | any;
   get classes() {
-    let c = [];
-    ["xs", "lg", "md", "xs"].forEach(v => {
-      c.push(`layui-col-${v}${this[v]}`);
-      if (Number(this[`offset-${v}`]) > 0) {
-        c.push(`layui-col-${v}-offset${this[v]}`);
-      }
-    });
-    if (Number(this.space)) {
+    let c: any = [];
+    c.push(`layui-col-xs${this.xs > 0 ? this.xs : this.span}`);
+    c.push(`layui-col-md${this.md > 0 ? this.md : this.span}`);
+    c.push(`layui-col-lg${this.lg > 0 ? this.lg : this.span}`);
+    c.push(`layui-col-sm${this.sm > 0 ? this.sm : this.span}`);
+    if (this.color) {
+      c.push(`layui-bg-${this.color}`);
+    }
+    if (this.space > 0) {
       c.push(`layui-col-space${this.space}`);
+    }
+    if (this.offset > 0 || this["offset-xs"] > 0) {
+      c.push(
+        `layui-col-xs-offset${
+          this["offset-xs"] > 0 ? this["offset-xs"] : this.offset
+        }`
+      );
+    }
+    if (this.offset > 0 || this["offset-sm"] > 0) {
+      c.push(
+        `layui-col-sm-offset${
+          this["offset-sm"] > 0 ? this["offset-sm"] : this.offset
+        }`
+      );
+    }
+    if (this.offset > 0 || this["offset-md"] > 0) {
+      c.push(
+        `layui-col-md-offset${
+          this["offset-md"] > 0 ? this["offset-md"] : this.offset
+        }`
+      );
+    }
+    if (this.offset > 0 || this["offset-lg"] > 0) {
+      c.push(
+        `layui-col-lg-offset${
+          this["offset-lg"] > 0 ? this["offset-lg"] : this.offset
+        }`
+      );
     }
     return c;
   }

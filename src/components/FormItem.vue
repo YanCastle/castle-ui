@@ -1,6 +1,9 @@
 <template>
     <div class="layui-form-item">
-        <slot></slot>
+        <label class="layui-form-label">{{label}}</label>
+        <div class="layui-input-block">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -15,6 +18,7 @@ import Component from "vue-class-component";
     //     type:String,
     //     default:()=>{return {}}
     // }
+    label: String
   },
   components: {}
 })

@@ -1,5 +1,7 @@
-import * as layui from '../assets/layui.all'
-import '../assets/css/layui.css'
+/// <reference path="layui.d.ts"></reference>
+// import "jquery"
+// import '../assets/layui'
+// import '../assets/css/layui.css'
 
 import Row from './components/Row.vue'
 import Col from './components/Col.vue'
@@ -8,23 +10,57 @@ import Badge from './components/Badge.vue'
 import Blockquoto from './components/Blockquoto.vue'
 import ButtonContainer from './components/ButtonContainer.vue'
 import ButtonGroup from './components/ButtonGroup.vue'
-const layui = {
+import Container from './components/Container.vue'
+import Button from './components/Button.vue'
+import Select from './components/Select.vue'
+import Form from './components/Form.vue'
+import FormItem from './components/FormItem.vue'
+import Input from './components/Input.vue'
+import InputPassword from './components/InputPassword.vue'
+// import Checkbox from './components/Checkbox.vue'
+import CheckboxGroup from './components/CheckboxGroup.vue'
+declare let layui: any;
+declare let $: any;
+layui.form.on('select', (data: any) => {
+    console.log(data.elem.checked, data.elem.name)
+})
+layui.form.on('checkbox', (data: any) => {
+    // console.log(data.elem.checked, data.elem.name)
+    data.elem.dispatchEvent(new Event('change'))
+    // data.elem.checked = true;
+    // data.elem.change()
+
+    // $(data.elem).attr('checked', true)
+})
+layui.form.on('radio', (data: any) => {
+    console.log(data.elem.checked, data.elem.name)
+})
+const ui: any = {
     Row,
     Col,
     Anim,
     Badge,
     Blockquoto,
     ButtonContainer,
-    ButtonGroup
+    ButtonGroup,
+    Button,
+    Container,
+    Select,
+    Form,
+    FormItem,
+    Input,
+    InputPassword,
+    // Checkbox,
+    CheckboxGroup,
 }
 /**
  * 安装
  * @param Vue 
  * @param opts 
  */
-function install(Vue, opts = {}) {
-    for (let key in layui) {
-        Vue.component(key, layui[key])
+function install(Vue: any, opts = {}) {
+    for (let key in ui) {
+        Vue.component(key, ui[key])
     }
 }
 export default {

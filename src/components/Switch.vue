@@ -1,12 +1,9 @@
 <template>
-    <div :class="classes" :lay-showPercent="show">
-        <div class="layui-process-bar" :lay-percent="`${percent}%`"></div>
-    </div>
+    <input type="checkbox" name="switch" lay-skin="switch" :checked="value" @change="change(v,$event)">
 </template>
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 @Component({
@@ -15,27 +12,18 @@ import Component from "vue-class-component";
     //     type:String,
     //     default:()=>{return {}}
     // }
-    percent: Number,
-    big: {
+    value: {
       type: Boolean,
       default: true
-    },
-    showPercent: {
-      type: Boolean,
-      default: false
     }
   },
   components: {}
 })
 //TODO 更改类名
-export default class Progress extends Vue {
-  big: boolean | any;
-  get classes() {
-    let c = ["layui-progress"];
-    if (this.big) {
-      c.push("layui-progress-big");
-    }
-    return c;
+export default class Switch extends Vue {
+  value: boolean | any;
+  change(v, event) {
+    this.$emit("input", event.target.checked);
   }
   mounted() {
     //组件被加载的时候触发
