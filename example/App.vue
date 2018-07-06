@@ -1,23 +1,22 @@
 <template>
   <Container>
-    <Row v-model="v">
-    <Col span=6>
-      <Button type="">1</Button>
-      <Button type="primary">1</Button>
-      <Button type="normal">1</Button>
-      <Button type="warn">1</Button>
-      <Button type="danger">1</Button>
-      <Button type="disabled">1</Button>
-    </Col>
-    <Col span=6>
-      <Button type="primary" size="lg">1</Button>
-      <Button type="normal" size="xs">1</Button>
-      <Button type="warn" size="sm">1</Button>
-      <Button type="disabled">1</Button>
-    </Col>
-    <Col span="6">
+    <Row>
+    <Col span="12">
     <Form>
-      <FormItem label="abc">          
+      <FormItem label="按钮 默认大小">
+        <Button type="">默认样式</Button>
+        <Button type="primary">primary</Button>
+        <Button type="normal">normal</Button>
+        <Button type="warn">warn</Button>
+        <Button type="danger">danger</Button>
+        <Button type="disabled">disabled</Button>
+      </FormItem>
+      <FormItem label="按钮尺寸控制">
+        <Button type="primary" size="lg">lg大</Button>
+        <Button type="normal" size="sm">sm中</Button>
+        <Button type="warn" size="xs">xs小</Button>
+      </FormItem>
+      <FormItem label="Select选择框">          
         <Select>
           <option value="1">1</option>
         </Select>
@@ -25,12 +24,18 @@
       <FormItem label='input'>
         <Input v-model="input"></Input>
       </FormItem>
-      <FormItem label='input'>
-        <!-- <Checkbox name="abc" title="abcc" value="1"></Checkbox>
-        <Checkbox name="abc" title="abdc" value="2"></Checkbox> -->
+      <FormItem label='原生风格CheckboxGroup'>
+        <CheckboxGroup name="check" skin="primary" :options="options" v-model="selected" @change="change"></CheckboxGroup>
+      </FormItem>
+      <FormItem label='默认风格CheckboxGroup'>
         <CheckboxGroup name="check" :options="options" v-model="selected" @change="change"></CheckboxGroup>
       </FormItem>
-
+      <FormItem label='开关Switcher'>
+        <Switcher :value="true" name="check"></Switcher>
+        <Switcher name="check" text="开|关"></Switcher>
+        <Switcher name="check" text="开启|关闭"></Switcher>
+        <Switcher name="check" text="OPEN|CLOSE"></Switcher>
+      </FormItem>
     </Form>
     </Col>
   </Row>

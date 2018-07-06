@@ -17,8 +17,8 @@ import Form from './components/Form.vue'
 import FormItem from './components/FormItem.vue'
 import Input from './components/Input.vue'
 import InputPassword from './components/InputPassword.vue'
-// import Checkbox from './components/Checkbox.vue'
 import CheckboxGroup from './components/CheckboxGroup.vue'
+import Switcher from './components/Switcher.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -52,6 +52,7 @@ const ui: any = {
     InputPassword,
     // Checkbox,
     CheckboxGroup,
+    Switcher,
 }
 /**
  * 安装

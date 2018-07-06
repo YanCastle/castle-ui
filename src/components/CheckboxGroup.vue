@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input type="checkbox" :name="name" v-for="(v,k) in checkboxs" :key="k" :checked="v.checked" @change="change(v.value,$event)" :value="k" :title="v.title">
+        <input type="checkbox" :lay-skin="skin" :name="name" v-for="(v,k) in checkboxs" :key="k" :checked="v.checked" @change="change(v.value,$event)" :value="k" :title="v.title">
     </div>
 </template>
 <script lang="ts">
@@ -23,6 +23,10 @@ declare let layui: any;
     value: {
       type: Array,
       default: []
+    },
+    skin: {
+      type: String,
+      default: ""
     },
     options: {
       type: [Object, Array],

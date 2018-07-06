@@ -44,9 +44,6 @@ export default class Select extends Vue {
   }
   created() {
     // 组件被创建的时候触发
-    this.$watch("selected", () => {
-      //   this.$emit("input", this.selected);
-    });
   }
 }
 </script>

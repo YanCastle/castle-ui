@@ -1,5 +1,5 @@
 <template>
-    <input type="checkbox" name="switch" lay-skin="switch" :checked="value" @change="change(v,$event)">
+    <input type="checkbox"  name="switch" lay-skin="switch" :lay-text="text" :checked="value" @change="change(v,$event)">
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -14,16 +14,24 @@ import Component from "vue-class-component";
     // }
     value: {
       type: Boolean,
-      default: true
+      default: false
+    },
+    text: {
+      type: String,
+      default: "ON|OFF",
+      validator: (v: any) => {
+        return v.split("|").length == 2;
+      }
     }
   },
   components: {}
 })
 //TODO 更改类名
-export default class Switch extends Vue {
+export default class Switcher extends Vue {
   value: boolean | any;
-  change(v, event) {
+  change(v: any, event: any) {
     this.$emit("input", event.target.checked);
+    this.$emit("change", { data: v, event });
   }
   mounted() {
     //组件被加载的时候触发
