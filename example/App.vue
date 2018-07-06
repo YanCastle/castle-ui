@@ -40,6 +40,9 @@
       <FormItem label='单选Radio'>
         <Radio></Radio>
       </FormItem>
+      <FormItem label='文本域Textarea'>
+        <Textarea v-model="textarea"></Textarea>
+      </FormItem>
     </Form>
     </Col>
   </Row>
@@ -70,6 +73,7 @@ export default class App extends Vue {
     { value: 4, title: 4 },
     { value: 5, title: 5 }
   ];
+  textarea: string = "文本域内容";
   change() {
     console.log(this.selected);
   }
