@@ -50,6 +50,11 @@
 
     </Form>
     </Col>
+    <Col span="12">
+      <Card title="卡片面板标题">
+        卡片面板内容；如果你的网页采用的是默认的白色背景，不建议使用卡片面板。
+      </Card>
+    </Col>
   </Row>
 </Container>
     <!-- <router-view></router-view> -->

@@ -22,6 +22,7 @@ import Switcher from './components/Switcher.vue'
 import Radio from './components/Radio.vue'
 import Textarea from './components/Textarea.vue'
 import Progress from './components/Progress.vue'
+import Card from './components/Card.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -59,6 +60,7 @@ const ui: any = {
     Radio,
     Textarea,
     Progress,
+    Card,
 }
 /**
  * 安装

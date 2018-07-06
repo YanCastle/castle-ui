@@ -1,7 +1,9 @@
 <template>
     <div class="layui-colla-item">
         <h2 class="layui-colla-title">{{title}}</h2>
-        <div class="layui-colla-content"></div>
+        <div class="layui-colla-content">
+          <slot></slot>
+        </div>
     </div>
 </template>
 <script lang="ts">
