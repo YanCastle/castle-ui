@@ -36,6 +36,10 @@
         <Switcher name="check" text="开启|关闭"></Switcher>
         <Switcher name="check" text="OPEN|CLOSE"></Switcher>
       </FormItem>
+      
+      <FormItem label='单选Radio'>
+        <Radio></Radio>
+      </FormItem>
     </Form>
     </Col>
   </Row>
