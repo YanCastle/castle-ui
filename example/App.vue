@@ -55,6 +55,16 @@
         卡片面板内容；如果你的网页采用的是默认的白色背景，不建议使用卡片面板。
       </Card>
     </Col>
+    <Col span="12">
+      <Collapse>
+        <CollapseItem title="折叠面板标题">
+          <div>折叠面板内容</div>
+        </CollapseItem>
+        <CollapseItem title="折叠面板标题1">
+          <div>折叠面板内容1</div>
+        </CollapseItem>
+      </Collapse>
+    </Col>
   </Row>
 </Container>
     <!-- <router-view></router-view> -->

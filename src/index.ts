@@ -23,6 +23,8 @@ import Radio from './components/Radio.vue'
 import Textarea from './components/Textarea.vue'
 import Progress from './components/Progress.vue'
 import Card from './components/Card.vue'
+import Collapse from './components/Collapse.vue'
+import CollapseItem from './components/CollapseItem.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -61,6 +63,8 @@ const ui: any = {
     Textarea,
     Progress,
     Card,
+    CollapseItem,
+    Collapse,
 }
 /**
  * 安装

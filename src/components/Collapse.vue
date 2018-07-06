@@ -26,7 +26,7 @@ import Component from "vue-class-component";
 export default class Collapse extends Vue {
   accordion: boolean | any;
   get attr() {
-    let r = {};
+    let r: any = {};
     if (this.accordion) {
       r["lay-accordion"] = "lay-accordion";
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="layui-colla-item">
         <h2 class="layui-colla-title">{{title}}</h2>
-        <div class="layui-colla-content">
+        <div class="layui-colla-content layui-show">
           <slot></slot>
         </div>
     </div>
@@ -9,7 +9,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
+declare let layui: any;
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 @Component({
@@ -26,6 +26,9 @@ import Component from "vue-class-component";
 export default class CollapseItem extends Vue {
   mounted() {
     //组件被加载的时候触发
+    this.$nextTick(() => {
+      layui.element.render();
+    });
   }
   created() {
     // 组件被创建的时候触发
