@@ -21,6 +21,7 @@ import CheckboxGroup from './components/CheckboxGroup.vue'
 import Switcher from './components/Switcher.vue'
 import Radio from './components/Radio.vue'
 import Textarea from './components/Textarea.vue'
+import Progress from './components/Progress.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -57,6 +58,7 @@ const ui: any = {
     Switcher,
     Radio,
     Textarea,
+    Progress,
 }
 /**
  * 安装

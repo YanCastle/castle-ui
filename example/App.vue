@@ -1,6 +1,6 @@
 <template>
-  <Container>
-    <Row>
+<Container>
+  <Row>
     <Col span="12">
     <Form>
       <FormItem label="按钮 默认大小">
@@ -16,7 +16,7 @@
         <Button type="normal" size="sm">sm中</Button>
         <Button type="warn" size="xs">xs小</Button>
       </FormItem>
-      <FormItem label="Select选择框">          
+      <FormItem label="Select选择框">
         <Select>
           <option value="1">1</option>
         </Select>
@@ -36,17 +36,22 @@
         <Switcher name="check" text="开启|关闭"></Switcher>
         <Switcher name="check" text="OPEN|CLOSE"></Switcher>
       </FormItem>
-      
+
       <FormItem label='单选Radio'>
         <Radio></Radio>
       </FormItem>
       <FormItem label='文本域Textarea'>
         <Textarea v-model="textarea"></Textarea>
       </FormItem>
+      <FormItem label='进度条'>
+        <!-- <Progress percent="30"></Progress> -->
+        <Progress :showpercent="false" :big="false"></Progress>
+      </FormItem>
+
     </Form>
     </Col>
   </Row>
-  </Container>
+</Container>
     <!-- <router-view></router-view> -->
 </template>
 
