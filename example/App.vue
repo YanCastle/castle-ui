@@ -40,7 +40,8 @@
       </FormItem>
 
       <FormItem label='单选Radio'>
-        <Radio></Radio>
+        <Radio name="name" title="男" value=1></Radio>
+        <Radio name="name" title="女" value=0></Radio>
       </FormItem>
       <FormItem label='文本域Textarea'>
         <Textarea v-model="textarea"></Textarea>

@@ -13,9 +13,18 @@ declare let layui: any;
     //     type:String,
     //     default:()=>{return {}}
     // }
-    name: String,
-    title: String,
-    value: String
+    name: {
+      type: [String, Number],
+      default: "Radio"
+    },
+    title: {
+      type: [String, Number],
+      default: "Radio"
+    },
+    value: {
+      type: [String, Number],
+      default: "Radio"
+    }
   },
   components: {}
 })
@@ -23,7 +32,6 @@ declare let layui: any;
 export default class Radio extends Vue {
   mounted() {
     //组件被加载的时候触发
-
     this.$nextTick(() => {
       layui.form.render("radio");
     });
