@@ -1,6 +1,15 @@
 <template>
 <Container>
   <Row>
+    
+    <Col span="12">
+      <Hr color="red"></Hr>
+      <Menu>
+        <MenuRow title="Menu">
+          <MenuItem title="菜单1"></MenuItem>
+        </MenuRow>
+      </Menu>
+    </Col>
     <Col span="12">
     
       <Hr color="blue"></Hr>
@@ -83,9 +92,7 @@
         </CollapseItem>
       </Collapse>
     </Col>
-    <Col span="12">
-      <Hr color="red"></Hr>
-    </Col>
+
   </Row>
 </Container>
     <!-- <router-view></router-view> -->

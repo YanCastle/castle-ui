@@ -27,6 +27,8 @@ import Collapse from './components/Collapse.vue'
 import CollapseItem from './components/CollapseItem.vue'
 import Hr from './components/Hr.vue'
 import Menu from './components/Menu.vue'
+import MenuRow from './components/MenuRow.vue'
+import MenuItem from './components/MenuItem.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -68,6 +70,9 @@ const ui: any = {
     CollapseItem,
     Collapse,
     Hr,
+    Menu,
+    MenuItem,
+    MenuRow,
 }
 /**
  * 安装

@@ -3,7 +3,7 @@
     * @param {string} url 脚本地址
     * @param {function} callback  回调函数
     */
-function dynamicLoadJs(url, callback) {
+function dynamicLoadJs(url: string, callback: Function) {
     var head = document.getElementsByTagName('head')[0];
     var script: any = document.createElement('script');
     script.type = 'text/javascript';
@@ -22,7 +22,7 @@ function dynamicLoadJs(url, callback) {
      * 动态加载CSS
      * @param {string} url 样式地址
      */
-function dynamicLoadCss(url) {
+function dynamicLoadCss(url: string) {
     var head = document.getElementsByTagName('head')[0];
     var link = document.createElement('link');
     link.type = 'text/css';
