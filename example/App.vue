@@ -2,6 +2,8 @@
 <Container>
   <Row>
     <Col span="12">
+    
+      <Hr color="blue"></Hr>
     <Form>
       <FormItem label="按钮 默认大小">
         <Button type="">默认样式</Button>
@@ -51,11 +53,15 @@
     </Form>
     </Col>
     <Col span="12">
+    
+      <Hr color="cyan"></Hr>
       <Card title="卡片面板标题">
         卡片面板内容；如果你的网页采用的是默认的白色背景，不建议使用卡片面板。
       </Card>
     </Col>
     <Col span="12">
+    
+      <Hr color="green"></Hr>
       <Collapse>
         <CollapseItem title="折叠面板标题">
           <div>折叠面板内容</div>
@@ -65,7 +71,8 @@
         </CollapseItem>
       </Collapse>
     </Col>
-    <Col span="12">
+    <Col span="12">    
+      <Hr color="orange"></Hr>
       <Collapse :accordion="true">
         <CollapseItem title="折叠面板标题-手风琴">
           <div>折叠面板内容</div>
@@ -74,6 +81,9 @@
           <div>折叠面板内容1</div>
         </CollapseItem>
       </Collapse>
+    </Col>
+    <Col span="12">
+      <Hr color="red"></Hr>
     </Col>
   </Row>
 </Container>

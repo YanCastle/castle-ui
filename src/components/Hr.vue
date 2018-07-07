@@ -18,10 +18,14 @@ import Component from "vue-class-component";
       type: String,
       default: "",
       validator: v => {
-        return (
-          ["", "orange", "green", "cyan", "blue", "black", "gray"].indexOf(v) >
-          -1
-        );
+        let c = ["", "red", "orange", "green", "cyan", "blue", "black", "gray"];
+        let p = c.indexOf(v) > -1;
+        if (!p) {
+          console.warn(
+            `Hr color should be in ${c.join(",")},your color is ${v}`
+          );
+        }
+        return p;
       }
     }
   },
