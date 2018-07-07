@@ -65,6 +65,16 @@
         </CollapseItem>
       </Collapse>
     </Col>
+    <Col span="12">
+      <Collapse :accordion="true">
+        <CollapseItem title="折叠面板标题-手风琴">
+          <div>折叠面板内容</div>
+        </CollapseItem>
+        <CollapseItem title="折叠面板标题1-手风琴">
+          <div>折叠面板内容1</div>
+        </CollapseItem>
+      </Collapse>
+    </Col>
   </Row>
 </Container>
     <!-- <router-view></router-view> -->
