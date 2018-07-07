@@ -29,31 +29,16 @@ import Hr from './components/Hr.vue'
 import Menu from './components/Menu.vue'
 import MenuRow from './components/MenuRow.vue'
 import MenuItem from './components/MenuItem.vue'
+import Side from './components/Side.vue'
+import LayoutFooter from './components/LayoutFooter.vue'
+import Layout from './components/Layout.vue'
+import LayoutRight from './components/LayoutRight.vue'
+import LayoutLeft from './components/LayoutLeft.vue'
+import LayoutBody from './components/LayoutBody.vue'
+import { load_js, load_css } from './utils/index';
 declare let layui: any;
 declare let $: any;
-layui.form.on('select', (data: any) => {
-    // console.log(data.elem.checked, data.elem.name)
-
-    data.elem.dispatchEvent(new Event('change'))
-})
-layui.form.on('switch', (data: any) => {
-    // console.log(data.elem.checked, data.elem.name)
-
-    data.elem.dispatchEvent(new Event('change'))
-})
-layui.form.on('checkbox', (data: any) => {
-    // console.log(data.elem.checked, data.elem.name)
-    data.elem.dispatchEvent(new Event('change'))
-    // data.elem.checked = true;
-    // data.elem.change()
-
-    // $(data.elem).attr('checked', true)
-})
-layui.form.on('radio', (data: any) => {
-    // console.log(data.elem.checked, data.elem.name)
-
-    data.elem.dispatchEvent(new Event('change'))
-})
+declare let window: any;
 const ui: any = {
     Row,
     Col,
@@ -82,6 +67,37 @@ const ui: any = {
     Menu,
     MenuItem,
     MenuRow,
+    Side,
+    LayoutFooter,
+    Layout,
+    LayoutRight,
+    LayoutLeft,
+    LayoutBody,
+}
+function init() {
+    layui.form.on('select', (data: any) => {
+        // console.log(data.elem.checked, data.elem.name)
+
+        data.elem.dispatchEvent(new Event('change'))
+    })
+    layui.form.on('switch', (data: any) => {
+        // console.log(data.elem.checked, data.elem.name)
+
+        data.elem.dispatchEvent(new Event('change'))
+    })
+    layui.form.on('checkbox', (data: any) => {
+        // console.log(data.elem.checked, data.elem.name)
+        data.elem.dispatchEvent(new Event('change'))
+        // data.elem.checked = true;
+        // data.elem.change()
+
+        // $(data.elem).attr('checked', true)
+    })
+    layui.form.on('radio', (data: any) => {
+        // console.log(data.elem.checked, data.elem.name)
+
+        data.elem.dispatchEvent(new Event('change'))
+    })
 }
 /**
  * 安装
@@ -92,7 +108,14 @@ function install(Vue: any, opts = {}) {
     for (let key in ui) {
         Vue.component(key, ui[key])
     }
-
+    if (!window.layui) {
+        load_css('http://pbidicyq9.bkt.clouddn.com/css/layui.css')
+        load_js('http://pbidicyq9.bkt.clouddn.com/layui.all.js', () => {
+            init()
+        })
+    } else {
+        init();
+    }
 }
 export default {
     install
