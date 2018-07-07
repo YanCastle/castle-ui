@@ -26,6 +26,7 @@ import Card from './components/Card.vue'
 import Collapse from './components/Collapse.vue'
 import CollapseItem from './components/CollapseItem.vue'
 import Hr from './components/Hr.vue'
+import Menu from './components/Menu.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
@@ -77,6 +78,7 @@ function install(Vue: any, opts = {}) {
     for (let key in ui) {
         Vue.component(key, ui[key])
     }
+
 }
 export default {
     install
