@@ -58,6 +58,7 @@ export default class CheckboxGroup extends Vue {
       o.checked = this.value.indexOf(e.value) > -1;
       options.push(o);
     });
+    layui.form.render("checkbox");
     return options;
   }
   change(v: any, event: any) {
@@ -82,6 +83,10 @@ export default class CheckboxGroup extends Vue {
     this.$nextTick(() => {
       layui.form.render("checkbox");
     });
+  }
+  created() {
+    // this.$watch('value',()=>{
+    // })
   }
 }
 </script>
