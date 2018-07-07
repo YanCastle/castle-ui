@@ -42,15 +42,17 @@
         <CheckboxGroup name="check" :options="options" v-model="selected" @change="change"></CheckboxGroup>
       </FormItem>
       <FormItem label='开关Switcher'>
-        <Switcher :value="true" name="check"></Switcher>
-        <Switcher name="check" text="开|关"></Switcher>
-        <Switcher name="check" text="开启|关闭"></Switcher>
-        <Switcher name="check" text="OPEN|CLOSE"></Switcher>
+        <Switcher v-model="switcher" :value="true" name="check"></Switcher>
+        <Switcher v-model="switcher" name="check" text="开|关"></Switcher>
+        <Switcher v-model="switcher" name="check" text="开启|关闭"></Switcher>
+        <Switcher v-model="switcher" name="check" text="OPEN|CLOSE"></Switcher>
       </FormItem>
 
       <FormItem label='单选Radio'>
-        <Radio name="name" title="男" value=1></Radio>
-        <Radio name="name" title="女" value=0></Radio>
+        <Radio v-model="radioValue" name="name" title="男" val="0"></Radio>
+        <Radio v-model="radioValue" name="name" title="女" val="1"></Radio>
+        <Radio v-model="radioValue" name="name1" title="男" val="0"></Radio>
+        <Radio v-model="radioValue" name="name1" title="女" val="1"></Radio>
       </FormItem>
       <FormItem label='文本域Textarea'>
         <Textarea v-model="textarea"></Textarea>
@@ -122,6 +124,8 @@ export default class App extends Vue {
     { value: 5, title: 5 }
   ];
   textarea: string = "文本域内容";
+  radioValue: any = "0";
+  switcher: any = false;
   change() {
     console.log(this.selected);
   }

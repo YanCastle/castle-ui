@@ -32,7 +32,14 @@ import MenuItem from './components/MenuItem.vue'
 declare let layui: any;
 declare let $: any;
 layui.form.on('select', (data: any) => {
-    console.log(data.elem.checked, data.elem.name)
+    // console.log(data.elem.checked, data.elem.name)
+
+    data.elem.dispatchEvent(new Event('change'))
+})
+layui.form.on('switch', (data: any) => {
+    // console.log(data.elem.checked, data.elem.name)
+
+    data.elem.dispatchEvent(new Event('change'))
 })
 layui.form.on('checkbox', (data: any) => {
     // console.log(data.elem.checked, data.elem.name)
@@ -43,7 +50,9 @@ layui.form.on('checkbox', (data: any) => {
     // $(data.elem).attr('checked', true)
 })
 layui.form.on('radio', (data: any) => {
-    console.log(data.elem.checked, data.elem.name)
+    // console.log(data.elem.checked, data.elem.name)
+
+    data.elem.dispatchEvent(new Event('change'))
 })
 const ui: any = {
     Row,

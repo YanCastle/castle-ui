@@ -1,5 +1,5 @@
 <template>
-    <input type="radio" :name="name" :title="title" :value="value">
+    <input type="radio" :name="name" :title="title" :checked="value==val?'checked':''" @change="change">
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -24,20 +24,33 @@ declare let layui: any;
     value: {
       type: [String, Number],
       default: "Radio"
+    },
+    val: {
+      type: [String, Number],
+      default: "Radio"
     }
   },
   components: {}
 })
 //TODO 更改类名
 export default class Radio extends Vue {
+  val: any;
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
       layui.form.render("radio");
     });
   }
+  change(event: any) {
+    this.$emit("input", this.val);
+  }
   created() {
     // 组件被创建的时候触发
+    this.$watch("value", () => {
+      this.$nextTick(() => {
+        layui.form.render("radio");
+      });
+    });
   }
 }
 </script>
