@@ -1,5 +1,5 @@
 <template>
-    <input type="radio" :name="name" :title="title" :checked="value==val?'checked':''" @change="change">
+    <input ref="radio" type="radio" :name="name" :title="title" :checked="value==val?'checked':''" @change="change">
 </template>
 <script lang="ts">
 import Vue from "vue";
