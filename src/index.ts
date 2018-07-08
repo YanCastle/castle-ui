@@ -1,8 +1,3 @@
-/// <reference path="layui.d.ts"></reference>
-// import "jquery"
-// import '../assets/layui'
-// import '../assets/css/layui.css'
-
 import Row from './components/Row.vue'
 import Col from './components/Col.vue'
 import Anim from './components/Anim.vue'
@@ -110,6 +105,11 @@ function install(Vue: any, opts = {}) {
     for (let key in ui) {
         Vue.component(key, ui[key])
     }
+    Vue.prototype.$loading = loading;
+    Vue.prototype.$msg = msg;
+    Vue.prototype.$alert = alert;
+    Vue.prototype.$confirm = confirm;
+    Vue.prototype.$tips = tips;
     if (!window.layui) {
         load_css('http://pbidicyq9.bkt.clouddn.com/css/layui.css')
         load_js('http://pbidicyq9.bkt.clouddn.com/layui.all.js', () => {
@@ -119,6 +119,86 @@ function install(Vue: any, opts = {}) {
         init();
     }
 }
+/**
+ * tip提示
+ * @param content 
+ * @param follow 
+ * @param options 
+ * @link http://www.layui.com/doc/modules/layer.html
+ */
+export function tips(content: string, follow: any = '', options: any = {}) {
+    if (window.layui) {
+        layui.layer.tips(content, follow, options)
+    } else {
+        setTimeout(() => {
+            tips(content, follow, options)
+        }, 200)
+    }
+}
+/**
+ * 加载中提示
+ * @param icon 
+ * @param options 
+ * @link http://www.layui.com/doc/modules/layer.html
+ */
+export function loading(icon: string = '', options: any = {}) {
+    if (window.layui) {
+        layui.layer.load(icon, options)
+    } else {
+        setTimeout(() => {
+            loading(icon, options)
+        }, 200)
+    }
+}
+/**
+ * msg 提示 
+ * @param content 
+ * @param options 
+ * @param end 
+ * @link http://www.layui.com/doc/modules/layer.html
+ */
+export function msg(content = "", options: any = {}, end: Function = () => { }) {
+    if (window.layui) {
+        layui.layer.msg(content, options, end)
+    } else {
+        setTimeout(() => {
+            msg(content, options, end)
+        }, 200)
+    }
+}
+/**
+ * 确认对话框
+ * @param content 
+ * @param yes 
+ * @param cancel 
+ * @param options 
+ * @link http://www.layui.com/doc/modules/layer.html
+ */
+export function confirm(content: string = '', yes: Function, cancel: Function, options: any = {}) {
+    if (window.layui) {
+        layui.layer.confirm(content, options, yes, cancel)
+    } else {
+        setTimeout(() => {
+            confirm(content, options, yes, cancel)
+        }, 200)
+    }
+}
+/**
+ * 警告
+ * @param content 
+ * @param yes 
+ * @param options 
+ * @link http://www.layui.com/doc/modules/layer.html
+ */
+export function alert(content: string = '', yes: Function, options: any = {}) {
+    if (window.layui) {
+        layui.layer.alert(content, options, yes)
+    } else {
+        setTimeout(() => {
+            alert(content, options, yes)
+        }, 200)
+    }
+}
 export default {
-    install
+    install, alert, confirm, msg, tips, loading
 }
