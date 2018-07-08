@@ -27,7 +27,13 @@ export default {
     }
   },
   data() {},
-  mounted() {},
+  mounted() {
+    this.$nextTicx(() => {
+      setTimeout(() => {
+        layui.element.render("tab");
+      }, 100);
+    });
+  },
   computed: {},
   created() {},
   methods: {},
