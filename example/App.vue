@@ -20,7 +20,7 @@
       <Row>
         <Col span="12">
           <Modal title="title" v-model="showModal">
-            haha
+            5s后我会消失，再等5s我还会再来的
           </Modal>
           <Button type="warn" @click="showModal=true">弹出模态框</Button>
         </Col>
