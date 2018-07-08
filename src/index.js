@@ -76,6 +76,7 @@ var ui = {
     Tabs: Tabs_vue_1["default"],
     TabPanel: TabPanel_vue_1["default"]
 };
+
 function init() {
     layui.form.on('select', function (data) {
         // console.log(data.elem.checked, data.elem.name)
@@ -103,7 +104,9 @@ function init() {
  * @param opts
  */
 function install(Vue, opts) {
-    if (opts === void 0) { opts = {}; }
+    if (opts === void 0) {
+        opts = {};
+    }
     for (var key in ui) {
         Vue.component(key, ui[key]);
     }
@@ -117,8 +120,7 @@ function install(Vue, opts) {
         index_1.load_js('http://pbidicyq9.bkt.clouddn.com/layui.all.js', function () {
             init();
         });
-    }
-    else {
+    } else {
         init();
     }
 }
@@ -130,12 +132,15 @@ function install(Vue, opts) {
  * @link http://www.layui.com/doc/modules/layer.html
  */
 function tips(content, follow, options) {
-    if (follow === void 0) { follow = ''; }
-    if (options === void 0) { options = {}; }
+    if (follow === void 0) {
+        follow = '';
+    }
+    if (options === void 0) {
+        options = {};
+    }
     if (window.layui) {
         layui.layer.tips(content, follow, options);
-    }
-    else {
+    } else {
         setTimeout(function () {
             tips(content, follow, options);
         }, 200);
@@ -149,12 +154,15 @@ exports.tips = tips;
  * @link http://www.layui.com/doc/modules/layer.html
  */
 function loading(icon, options) {
-    if (icon === void 0) { icon = ''; }
-    if (options === void 0) { options = {}; }
+    if (icon === void 0) {
+        icon = '';
+    }
+    if (options === void 0) {
+        options = {};
+    }
     if (window.layui) {
         layui.layer.load(icon, options);
-    }
-    else {
+    } else {
         setTimeout(function () {
             loading(icon, options);
         }, 200);
@@ -169,13 +177,18 @@ exports.loading = loading;
  * @link http://www.layui.com/doc/modules/layer.html
  */
 function msg(content, options, end) {
-    if (content === void 0) { content = ""; }
-    if (options === void 0) { options = {}; }
-    if (end === void 0) { end = function () { }; }
+    if (content === void 0) {
+        content = "";
+    }
+    if (options === void 0) {
+        options = {};
+    }
+    if (end === void 0) {
+        end = function () {};
+    }
     if (window.layui) {
         layui.layer.msg(content, options, end);
-    }
-    else {
+    } else {
         setTimeout(function () {
             msg(content, options, end);
         }, 200);
@@ -191,12 +204,15 @@ exports.msg = msg;
  * @link http://www.layui.com/doc/modules/layer.html
  */
 function confirm(content, yes, cancel, options) {
-    if (content === void 0) { content = ''; }
-    if (options === void 0) { options = {}; }
+    if (content === void 0) {
+        content = '';
+    }
+    if (options === void 0) {
+        options = {};
+    }
     if (window.layui) {
         layui.layer.confirm(content, options, yes, cancel);
-    }
-    else {
+    } else {
         setTimeout(function () {
             confirm(content, options, yes, cancel);
         }, 200);
@@ -211,12 +227,15 @@ exports.confirm = confirm;
  * @link http://www.layui.com/doc/modules/layer.html
  */
 function alert(content, yes, options) {
-    if (content === void 0) { content = ''; }
-    if (options === void 0) { options = {}; }
+    if (content === void 0) {
+        content = '';
+    }
+    if (options === void 0) {
+        options = {};
+    }
     if (window.layui) {
         layui.layer.alert(content, options, yes);
-    }
-    else {
+    } else {
         setTimeout(function () {
             alert(content, options, yes);
         }, 200);
@@ -224,5 +243,10 @@ function alert(content, yes, options) {
 }
 exports.alert = alert;
 exports["default"] = {
-    install: install, alert: alert, confirm: confirm, msg: msg, tips: tips, loading: loading
+    install: install,
+    alert: alert,
+    confirm: confirm,
+    msg: msg,
+    tips: tips,
+    loading: loading
 };

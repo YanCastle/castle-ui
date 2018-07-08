@@ -1,12 +1,11 @@
-<template>
-    <div style="display:none;">    
-        <div ref="content">
-            <slot></slot>
-        </div>
+<template>  
+    <div ref="content">
+        <slot></slot>
     </div>
 </template>
 <script>
 import { rangeValidator } from "../utils";
+const type = ["content", "html", "iframe", "loading", "tips"];
 export default {
   name: "Modal",
   props: {
@@ -14,11 +13,7 @@ export default {
       type: String,
       default: "content",
       validator: v => {
-        return rangeValidator(
-          v,
-          ["content", "html", "iframe", "loading", "tips"],
-          "Modal type"
-        );
+        return rangeValidator(v, type, "Modal type");
       }
     },
     title: {
@@ -46,6 +41,7 @@ export default {
   },
   created() {
     // 组件被创建的时候触发
+    window.modalid++;
     this.$watch("value", n => {
       if (n) {
         this.open();
@@ -71,11 +67,18 @@ export default {
       }
     },
     show() {
-      let content = this.$refs.content;
+      //   let content = this.$refs.content;
+      //   console.log($(this.$refs.content).parents);
       this.layerIndex = layui.layer.open(
         Object.assign(this.options, {
           title: this.title,
-          content: content.innerHTML,
+          content: $(this.$refs.content),
+          type: type.indexOf(this.type) + 1,
+          btn: [],
+          shade: 0,
+          success: () => {
+            $(".layui-layer-content");
+          },
           end: () => {
             this.$emit("input", false);
           }
