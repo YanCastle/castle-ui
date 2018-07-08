@@ -5,6 +5,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 declare let layui: any;
+declare let window: any;
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 @Component({
@@ -41,7 +42,7 @@ export default class Switcher extends Vue {
     // 组件被创建的时候触发
     this.$watch("value", () => {
       this.$nextTick(() => {
-        layui.form.render("checkbox");
+        if (window["layui"]) layui.form.render("checkbox");
       });
     });
   }

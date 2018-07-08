@@ -11,6 +11,7 @@ import { rangeValidator } from "../utils";
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 declare let layui: any;
+declare let window: any;
 @Component({
   props: {
     // demo:{
@@ -51,9 +52,10 @@ export default class Menu extends Vue {
     //组件被加载的时候触发
     this.$nextTick(() => {
       setTimeout(() => {
-        layui.element.render(
-          `nav${this.filter.length > 0 ? `(${this.filter})` : ""}`
-        );
+        if (window["layui"])
+          layui.element.render(
+            `nav${this.filter.length > 0 ? `(${this.filter})` : ""}`
+          );
       }, 1000);
     });
   }

@@ -5,7 +5,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-// http://www.layui.com/doc/element/table.html
+// http://www.if(window['layui'])layui.com/doc/element/table.html
 //props的属性一般不需要再在类中进行初始化
 @Component({
   props: {

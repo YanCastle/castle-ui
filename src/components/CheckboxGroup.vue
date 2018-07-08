@@ -10,6 +10,7 @@ import * as _ from "lodash";
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 declare let layui: any;
+declare let window: any;
 @Component({
   props: {
     // demo:{
@@ -58,7 +59,7 @@ export default class CheckboxGroup extends Vue {
       o.checked = this.value.indexOf(e.value) > -1;
       options.push(o);
     });
-    layui.form.render("checkbox");
+    if (window["layui"]) layui.form.render("checkbox");
     return options;
   }
   change(v: any, event: any) {
@@ -81,7 +82,7 @@ export default class CheckboxGroup extends Vue {
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
-      layui.form.render("checkbox");
+      if (window["layui"]) layui.form.render("checkbox");
     });
   }
   created() {

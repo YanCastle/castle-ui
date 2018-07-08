@@ -7,6 +7,7 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 declare let layui: any;
+declare let window: any;
 //TODO 导入搜索接口
 //props的属性一般不需要再在类中进行初始化
 @Component({
@@ -39,7 +40,7 @@ export default class Select extends Vue {
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
-      layui.form.render("select");
+      if (window["layui"]) layui.form.render("select");
     });
   }
   created() {
