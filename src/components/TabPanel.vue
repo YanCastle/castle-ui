@@ -1,11 +1,9 @@
 <template>
-    <div class="layui-tab">
-        
-    </div>
+    <div class="layui-tab-item"><slot></slot></div>    
 </template>
 <script>
 export default {
-  name: "Tab",
+  name: "TabPanel",
   props: {},
   data() {
     return {};

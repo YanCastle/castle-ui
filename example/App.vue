@@ -19,6 +19,19 @@
       <Col span="12">
       <Row>
         <Col span="12">
+          <Tabs :titles="[{title:'a'},{title:'b'},{title:'c'},]">
+            <TabPanel>
+              a
+            </TabPanel>
+            <TabPanel>
+              b
+            </TabPanel>
+            <TabPanel>
+              c
+            </TabPanel>
+          </Tabs>
+        </Col>
+        <Col span="12">
           <Modal title="title" v-model="showModal">
             5s后我会消失，再等5s我还会再来的
           </Modal>

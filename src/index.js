@@ -33,6 +33,9 @@ var LayoutRight_vue_1 = require("./components/LayoutRight.vue");
 var LayoutLeft_vue_1 = require("./components/LayoutLeft.vue");
 var LayoutBody_vue_1 = require("./components/LayoutBody.vue");
 var Modal_vue_1 = require("./components/Modal.vue");
+var Icon_vue_1 = require("./components/Icon.vue");
+var Tabs_vue_1 = require("./components/Tabs.vue");
+var TabPanel_vue_1 = require("./components/TabPanel.vue");
 var index_1 = require("./utils/index");
 var ui = {
     Row: Row_vue_1["default"],
@@ -68,7 +71,10 @@ var ui = {
     LayoutRight: LayoutRight_vue_1["default"],
     LayoutLeft: LayoutLeft_vue_1["default"],
     LayoutBody: LayoutBody_vue_1["default"],
-    Modal: Modal_vue_1["default"]
+    Modal: Modal_vue_1["default"],
+    Icon: Icon_vue_1["default"],
+    Tabs: Tabs_vue_1["default"],
+    TabPanel: TabPanel_vue_1["default"]
 };
 function init() {
     layui.form.on('select', function (data) {
