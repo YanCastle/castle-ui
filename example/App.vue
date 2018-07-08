@@ -177,9 +177,9 @@ export default class App extends Vue {
     console.log(this.selected);
   }
   mounted() {
-    setInterval(() => {
-      this.showModal = !this.showModal;
-    }, 5000);
+    // setInterval(() => {
+    //   this.showModal = !this.showModal;
+    // }, 5000);
   }
   created() {}
 }
