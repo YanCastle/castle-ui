@@ -6,6 +6,7 @@
     </div>
 </template>
 <script>
+import { rangeValidator } from "../utils";
 export default {
   name: "Modal",
   props: {
