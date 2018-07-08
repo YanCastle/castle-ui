@@ -1,5 +1,5 @@
 <template>
-    <button :class="classes">
+    <button :class="classes" @click="click" @blur="blur" @contextmenu="contextmenu" @dblclick="dblclick">
         <slot></slot>
     </button>
 </template>
@@ -57,6 +57,21 @@ export default class Button extends Vue {
     }
     return c;
   }
+  click(event: any) {
+    this.$emit("click", event);
+  }
+  blur(event: any) {
+    this.$emit("blur", event);
+  }
+  contextmenu(event: any) {
+    this.$emit("contextmenu", event);
+  }
+  dblclick(event: any) {
+    this.$emit("dblclick", event);
+  }
+  // click(event:any){
+  //   this.$emit('click',event)
+  // }
   mounted() {
     //组件被加载的时候触发
   }
