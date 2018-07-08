@@ -5,15 +5,21 @@
 export default {
   name: "TabPanel",
   props: {
+    label: {
+      type: String,
+      default: "Title"
+    },
     show: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    this.$parent.addPanel(this.label);
+  },
   computed: {
     classes() {
       let c = ["layui-tab-item"];

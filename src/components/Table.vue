@@ -1,5 +1,7 @@
 <template>
-    <table class="layui-table" v-bind="attr"></table>
+    <table class="layui-table" v-bind="attr">
+      <slot></slot>
+    </table>
 </template>
 <script>
 export default {

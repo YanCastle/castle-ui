@@ -12,21 +12,13 @@
 import { rangeValidator } from "../utils";
 export default {
   name: "Tabs",
-  props: {
-    titles: [Array, Object],
-    validator: v => {
-      try {
-        for (let o of v) {
-          if (!o.title || o.title.length == 0) {
-            console.error('Tabs titles shoud contain title,[{title:"a"}]');
-            return false;
-          }
-        }
-      } catch (error) {}
-      return true;
-    }
+  props: {},
+  data() {
+    return {
+      titles: []
+    };
   },
-  data() {},
+
   mounted() {
     this.$nextTicx(() => {
       setTimeout(() => {
@@ -36,8 +28,13 @@ export default {
   },
   computed: {},
   created() {},
-  methods: {},
-  TabPanel
+  methods: {
+    addPanel(title) {
+      this.titles.push({
+        title
+      });
+    }
+  }
 };
 </script>
 <style scoped>

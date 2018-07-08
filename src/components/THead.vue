@@ -1,11 +1,13 @@
 <template>
-    <div>
-
-    </div>
+    <thead>
+      <tr>
+        
+      </tr>
+    </thead>
 </template>
 <script>
 export default {
-  name: "TableHeader",
+  name: "THead",
   props: {},
   data() {
     return {};
