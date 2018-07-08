@@ -34,9 +34,11 @@ declare let window: any;
       type: String,
       default: "标题"
     },
-    skin: {
-      type: String,
-      default: ""
+    options: {
+      type: Object,
+      default: () => {
+        return {};
+      }
     },
     value: {
       type: Boolean,
@@ -49,6 +51,8 @@ declare let window: any;
 export default class Modal extends Vue {
   value: boolean | any;
   title: string | any;
+  options: any;
+
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
@@ -63,6 +67,10 @@ export default class Modal extends Vue {
       if (n) {
         this.open();
       } else {
+        if (this.layerIndex > -1) {
+          layui.layer.close(this.layerIndex);
+          this.layerIndex = -1;
+        }
       }
     });
   }
@@ -73,15 +81,18 @@ export default class Modal extends Vue {
       setTimeout(this.open, 100);
     }
   }
+  layerIndex: number = -1;
   show() {
     let content: any = this.$refs.content;
-    layui.layer.open({
-      title: this.title,
-      content: content.innerHTML,
-      end: () => {
-        this.$emit("input", false);
-      }
-    });
+    this.layerIndex = layui.layer.open(
+      Object.assign(this.options, {
+        title: this.title,
+        content: content.innerHTML,
+        end: () => {
+          this.$emit("input", false);
+        }
+      })
+    );
   }
 }
 </script>
