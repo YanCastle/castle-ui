@@ -35,6 +35,7 @@ import Layout from './components/Layout.vue'
 import LayoutRight from './components/LayoutRight.vue'
 import LayoutLeft from './components/LayoutLeft.vue'
 import LayoutBody from './components/LayoutBody.vue'
+import Modal from './components/Modal.vue'
 import { load_js, load_css } from './utils/index';
 declare let layui: any;
 declare let $: any;
@@ -73,6 +74,7 @@ const ui: any = {
     LayoutRight,
     LayoutLeft,
     LayoutBody,
+    Modal,
 }
 function init() {
     layui.form.on('select', (data: any) => {
