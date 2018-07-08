@@ -1,8 +1,8 @@
 {
   "name": "castle-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.ts",
   "files": [
     "src/**/*",
     "README.md"
