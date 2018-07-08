@@ -19,6 +19,17 @@
       <Col span="12">
       <Row>
         <Col span="12">
+          <Modal title="title" v-model="showModal">
+            haha
+          </Modal>
+          <Button type="warn" @click="showModal=true">弹出模态框</Button>
+        </Col>
+        <Col span="12">
+          <Badge type="badge">1</Badge>
+          <Badge type="dot">1</Badge>
+          <Badge type="rim">1</Badge>
+        </Col>
+        <Col span="12">
           <Menu type="" filter="ab">        
             <MenuRow title="Menu">
               <MenuItem title="菜单1"></MenuItem>
@@ -161,6 +172,7 @@ export default class App extends Vue {
   textarea: string = "文本域内容";
   radioValue: any = "0";
   switcher: any = false;
+  showModal: boolean = false;
   change() {
     console.log(this.selected);
   }
