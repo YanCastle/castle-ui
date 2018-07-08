@@ -3,48 +3,39 @@
         <slot></slot>
     </div>
 </template>
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-
-//TODO 导入搜索接口
-//props的属性一般不需要再在类中进行初始化
-@Component({
+<script>
+import { rangeValidator } from "../utils";
+export default {
+  name: "Row",
   props: {
-    // demo:{
-    //     type:String,
-    //     default:()=>{return {}}
-    // }
     color: {
       type: String,
       default: "",
       validator: v => {
-        return (
-          ["", "red", "orange", "green", "cyan", "blue", "black"].indexOf(v) >
-          -1
+        return rangeValidator(
+          v,
+          ["", "red", "orange", "green", "cyan", "blue", "black"],
+          "Row color"
         );
       }
     }
   },
-  components: {}
-})
-//TODO 更改类名
-export default class Row extends Vue {
-  color: string | any;
-  get classes() {
-    let c = ["layui-row"];
-    if (this.color) {
-      c.push(`layui-bg-${this.color}`);
+  computed: {
+    classes() {
+      let c = ["layui-row"];
+      if (this.color) {
+        c.push(`layui-bg-${this.color}`);
+      }
+      return c;
     }
-    return c;
-  }
-  mounted() {
-    //组件被加载的时候触发
-  }
-  created() {
-    // 组件被创建的时候触发
-  }
-}
+  },
+  data() {
+    return {};
+  },
+  mounted() {},
+  created() {},
+  methods: {}
+};
 </script>
 <style scoped>
 </style>

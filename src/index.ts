@@ -32,9 +32,9 @@ import LayoutLeft from './components/LayoutLeft.vue'
 import LayoutBody from './components/LayoutBody.vue'
 import Modal from './components/Modal.vue'
 import { load_js, load_css } from './utils/index';
-declare let layui: any;
+declare let layui: any
 declare let $: any;
-declare let window: any;
+
 const ui: any = {
     Row,
     Col,

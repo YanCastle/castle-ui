@@ -1,10 +1,12 @@
 {
   "name": "castle-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "src/index.js",
   "files": [
-    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.js",
+    "src/**/*.d.ts",
     "README.md"
   ],
   "scripts": {
@@ -23,10 +25,7 @@
   },
   "homepage": "https://github.com/YanCastle/castle-ui#readme",
   "dependencies": {
-    "@types/jquery": "^3.3.4",
-    "jquery": "^3.3.1",
-    "vue": "^2.5.16",
-    "vue-class-component": "^6.2.0"
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.110",

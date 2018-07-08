@@ -11,7 +11,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        'app': './example/main.ts'
+        'app': './src/index.ts'
     },
     resolve: {
         extensions: [' ', '.ts', '.vue', '.json', '.js', '.scss', '.css', 'node_modules'],

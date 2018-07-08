@@ -3,25 +3,19 @@
         <slot></slot>
     </button>
 </template>
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-
-//TODO 导入搜索接口
-//props的属性一般不需要再在类中进行初始化
-@Component({
+<script>
+import { rangeValidator } from "../utils";
+export default {
+  name: "Button",
   props: {
-    // demo:{
-    //     type:String,
-    //     default:()=>{return {}}
-    // }
     type: {
       type: String,
       default: "",
       validator: v => {
-        return (
-          ["", "primary", "normal", "warn", "danger", "disabled"].indexOf(v) >
-          -1
+        return rangeValidator(
+          v,
+          ["", "primary", "normal", "warn", "danger", "disabled"],
+          "Button type"
         );
       }
     },
@@ -29,7 +23,7 @@ import Component from "vue-class-component";
       type: String,
       default: "",
       validator: v => {
-        return ["", "lg", "sm", "xs"].indexOf(v) > -1;
+        return rangeValidator(v, ["", "lg", "sm", "xs"], "Button size");
       }
     },
     radius: {
@@ -37,48 +31,36 @@ import Component from "vue-class-component";
       default: false
     }
   },
-  components: {}
-})
-//TODO 更改类名
-export default class Button extends Vue {
-  type: string | any;
-  size: string | any;
-  radius: string | any;
-  get classes() {
-    let c = ["layui-btn"];
-    if (this.type) {
-      c.push("layui-btn-" + this.type);
+  computed: {
+    classes() {
+      let c = ["layui-btn"];
+      if (this.type) {
+        c.push("layui-btn-" + this.type);
+      }
+      if (this.size) {
+        c.push(`layui-btn-${this.size}`);
+      }
+      if (this.radius) {
+        c.push("layui-btn-radius");
+      }
+      return c;
     }
-    if (this.size) {
-      c.push(`layui-btn-${this.size}`);
+  },
+  methods: {
+    click(event) {
+      this.$emit("click", event);
+    },
+    blur(event) {
+      this.$emit("blur", event);
+    },
+    contextmenu(event) {
+      this.$emit("contextmenu", event);
+    },
+    dblclick(event) {
+      this.$emit("dblclick", event);
     }
-    if (this.radius) {
-      c.push("layui-btn-radius");
-    }
-    return c;
   }
-  click(event: any) {
-    this.$emit("click", event);
-  }
-  blur(event: any) {
-    this.$emit("blur", event);
-  }
-  contextmenu(event: any) {
-    this.$emit("contextmenu", event);
-  }
-  dblclick(event: any) {
-    this.$emit("dblclick", event);
-  }
-  // click(event:any){
-  //   this.$emit('click',event)
-  // }
-  mounted() {
-    //组件被加载的时候触发
-  }
-  created() {
-    // 组件被创建的时候触发
-  }
-}
+};
 </script>
 <style scoped>
 </style>

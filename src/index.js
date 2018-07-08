@@ -1,90 +1,92 @@
-import Row from './components/Row.vue';
-import Col from './components/Col.vue';
-import Anim from './components/Anim.vue';
-import Badge from './components/Badge.vue';
-import Blockquoto from './components/Blockquoto.vue';
-import ButtonContainer from './components/ButtonContainer.vue';
-import ButtonGroup from './components/ButtonGroup.vue';
-import Container from './components/Container.vue';
-import Button from './components/Button.vue';
-import Select from './components/Select.vue';
-import Form from './components/Form.vue';
-import FormItem from './components/FormItem.vue';
-import Input from './components/Input.vue';
-import InputPassword from './components/InputPassword.vue';
-import CheckboxGroup from './components/CheckboxGroup.vue';
-import Switcher from './components/Switcher.vue';
-import Radio from './components/Radio.vue';
-import Textarea from './components/Textarea.vue';
-import Progress from './components/Progress.vue';
-import Card from './components/Card.vue';
-import Collapse from './components/Collapse.vue';
-import CollapseItem from './components/CollapseItem.vue';
-import Hr from './components/Hr.vue';
-import Menu from './components/Menu.vue';
-import MenuRow from './components/MenuRow.vue';
-import MenuItem from './components/MenuItem.vue';
-import Side from './components/Side.vue';
-import LayoutFooter from './components/LayoutFooter.vue';
-import Layout from './components/Layout.vue';
-import LayoutRight from './components/LayoutRight.vue';
-import LayoutLeft from './components/LayoutLeft.vue';
-import LayoutBody from './components/LayoutBody.vue';
-import Modal from './components/Modal.vue';
-import { load_js, load_css } from './utils/index';
-const ui = {
-    Row,
-    Col,
-    Anim,
-    Badge,
-    Blockquoto,
-    ButtonContainer,
-    ButtonGroup,
-    Button,
-    Container,
-    Select,
-    Form,
-    FormItem,
-    Input,
-    InputPassword,
+"use strict";
+exports.__esModule = true;
+var Row_vue_1 = require("./components/Row.vue");
+var Col_vue_1 = require("./components/Col.vue");
+var Anim_vue_1 = require("./components/Anim.vue");
+var Badge_vue_1 = require("./components/Badge.vue");
+var Blockquoto_vue_1 = require("./components/Blockquoto.vue");
+var ButtonContainer_vue_1 = require("./components/ButtonContainer.vue");
+var ButtonGroup_vue_1 = require("./components/ButtonGroup.vue");
+var Container_vue_1 = require("./components/Container.vue");
+var Button_vue_1 = require("./components/Button.vue");
+var Select_vue_1 = require("./components/Select.vue");
+var Form_vue_1 = require("./components/Form.vue");
+var FormItem_vue_1 = require("./components/FormItem.vue");
+var Input_vue_1 = require("./components/Input.vue");
+var InputPassword_vue_1 = require("./components/InputPassword.vue");
+var CheckboxGroup_vue_1 = require("./components/CheckboxGroup.vue");
+var Switcher_vue_1 = require("./components/Switcher.vue");
+var Radio_vue_1 = require("./components/Radio.vue");
+var Textarea_vue_1 = require("./components/Textarea.vue");
+var Progress_vue_1 = require("./components/Progress.vue");
+var Card_vue_1 = require("./components/Card.vue");
+var Collapse_vue_1 = require("./components/Collapse.vue");
+var CollapseItem_vue_1 = require("./components/CollapseItem.vue");
+var Hr_vue_1 = require("./components/Hr.vue");
+var Menu_vue_1 = require("./components/Menu.vue");
+var MenuRow_vue_1 = require("./components/MenuRow.vue");
+var MenuItem_vue_1 = require("./components/MenuItem.vue");
+var Side_vue_1 = require("./components/Side.vue");
+var LayoutFooter_vue_1 = require("./components/LayoutFooter.vue");
+var Layout_vue_1 = require("./components/Layout.vue");
+var LayoutRight_vue_1 = require("./components/LayoutRight.vue");
+var LayoutLeft_vue_1 = require("./components/LayoutLeft.vue");
+var LayoutBody_vue_1 = require("./components/LayoutBody.vue");
+var Modal_vue_1 = require("./components/Modal.vue");
+var index_1 = require("./utils/index");
+var ui = {
+    Row: Row_vue_1["default"],
+    Col: Col_vue_1["default"],
+    Anim: Anim_vue_1["default"],
+    Badge: Badge_vue_1["default"],
+    Blockquoto: Blockquoto_vue_1["default"],
+    ButtonContainer: ButtonContainer_vue_1["default"],
+    ButtonGroup: ButtonGroup_vue_1["default"],
+    Button: Button_vue_1["default"],
+    Container: Container_vue_1["default"],
+    Select: Select_vue_1["default"],
+    Form: Form_vue_1["default"],
+    FormItem: FormItem_vue_1["default"],
+    Input: Input_vue_1["default"],
+    InputPassword: InputPassword_vue_1["default"],
     // Checkbox,
-    CheckboxGroup,
-    Switcher,
-    Radio,
-    Textarea,
-    Progress,
-    Card,
-    CollapseItem,
-    Collapse,
-    Hr,
-    Menu,
-    MenuItem,
-    MenuRow,
-    Side,
-    LayoutFooter,
-    Layout,
-    LayoutRight,
-    LayoutLeft,
-    LayoutBody,
-    Modal,
+    CheckboxGroup: CheckboxGroup_vue_1["default"],
+    Switcher: Switcher_vue_1["default"],
+    Radio: Radio_vue_1["default"],
+    Textarea: Textarea_vue_1["default"],
+    Progress: Progress_vue_1["default"],
+    Card: Card_vue_1["default"],
+    CollapseItem: CollapseItem_vue_1["default"],
+    Collapse: Collapse_vue_1["default"],
+    Hr: Hr_vue_1["default"],
+    Menu: Menu_vue_1["default"],
+    MenuItem: MenuItem_vue_1["default"],
+    MenuRow: MenuRow_vue_1["default"],
+    Side: Side_vue_1["default"],
+    LayoutFooter: LayoutFooter_vue_1["default"],
+    Layout: Layout_vue_1["default"],
+    LayoutRight: LayoutRight_vue_1["default"],
+    LayoutLeft: LayoutLeft_vue_1["default"],
+    LayoutBody: LayoutBody_vue_1["default"],
+    Modal: Modal_vue_1["default"]
 };
 function init() {
-    layui.form.on('select', (data) => {
+    layui.form.on('select', function (data) {
         // console.log(data.elem.checked, data.elem.name)
         data.elem.dispatchEvent(new Event('change'));
     });
-    layui.form.on('switch', (data) => {
+    layui.form.on('switch', function (data) {
         // console.log(data.elem.checked, data.elem.name)
         data.elem.dispatchEvent(new Event('change'));
     });
-    layui.form.on('checkbox', (data) => {
+    layui.form.on('checkbox', function (data) {
         // console.log(data.elem.checked, data.elem.name)
         data.elem.dispatchEvent(new Event('change'));
         // data.elem.checked = true;
         // data.elem.change()
         // $(data.elem).attr('checked', true)
     });
-    layui.form.on('radio', (data) => {
+    layui.form.on('radio', function (data) {
         // console.log(data.elem.checked, data.elem.name)
         data.elem.dispatchEvent(new Event('change'));
     });
@@ -94,8 +96,9 @@ function init() {
  * @param Vue
  * @param opts
  */
-function install(Vue, opts = {}) {
-    for (let key in ui) {
+function install(Vue, opts) {
+    if (opts === void 0) { opts = {}; }
+    for (var key in ui) {
         Vue.component(key, ui[key]);
     }
     Vue.prototype.$loading = loading;
@@ -104,8 +107,8 @@ function install(Vue, opts = {}) {
     Vue.prototype.$confirm = confirm;
     Vue.prototype.$tips = tips;
     if (!window.layui) {
-        load_css('http://pbidicyq9.bkt.clouddn.com/css/layui.css');
-        load_js('http://pbidicyq9.bkt.clouddn.com/layui.all.js', () => {
+        index_1.load_css('http://pbidicyq9.bkt.clouddn.com/css/layui.css');
+        index_1.load_js('http://pbidicyq9.bkt.clouddn.com/layui.all.js', function () {
             init();
         });
     }
@@ -120,32 +123,38 @@ function install(Vue, opts = {}) {
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-export function tips(content, follow = '', options = {}) {
+function tips(content, follow, options) {
+    if (follow === void 0) { follow = ''; }
+    if (options === void 0) { options = {}; }
     if (window.layui) {
         layui.layer.tips(content, follow, options);
     }
     else {
-        setTimeout(() => {
+        setTimeout(function () {
             tips(content, follow, options);
         }, 200);
     }
 }
+exports.tips = tips;
 /**
  * 加载中提示
  * @param icon
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-export function loading(icon = '', options = {}) {
+function loading(icon, options) {
+    if (icon === void 0) { icon = ''; }
+    if (options === void 0) { options = {}; }
     if (window.layui) {
         layui.layer.load(icon, options);
     }
     else {
-        setTimeout(() => {
+        setTimeout(function () {
             loading(icon, options);
         }, 200);
     }
 }
+exports.loading = loading;
 /**
  * msg 提示
  * @param content
@@ -153,16 +162,20 @@ export function loading(icon = '', options = {}) {
  * @param end
  * @link http://www.layui.com/doc/modules/layer.html
  */
-export function msg(content = "", options = {}, end = () => { }) {
+function msg(content, options, end) {
+    if (content === void 0) { content = ""; }
+    if (options === void 0) { options = {}; }
+    if (end === void 0) { end = function () { }; }
     if (window.layui) {
         layui.layer.msg(content, options, end);
     }
     else {
-        setTimeout(() => {
+        setTimeout(function () {
             msg(content, options, end);
         }, 200);
     }
 }
+exports.msg = msg;
 /**
  * 确认对话框
  * @param content
@@ -171,16 +184,19 @@ export function msg(content = "", options = {}, end = () => { }) {
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-export function confirm(content = '', yes, cancel, options = {}) {
+function confirm(content, yes, cancel, options) {
+    if (content === void 0) { content = ''; }
+    if (options === void 0) { options = {}; }
     if (window.layui) {
         layui.layer.confirm(content, options, yes, cancel);
     }
     else {
-        setTimeout(() => {
+        setTimeout(function () {
             confirm(content, options, yes, cancel);
         }, 200);
     }
 }
+exports.confirm = confirm;
 /**
  * 警告
  * @param content
@@ -188,16 +204,19 @@ export function confirm(content = '', yes, cancel, options = {}) {
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-export function alert(content = '', yes, options = {}) {
+function alert(content, yes, options) {
+    if (content === void 0) { content = ''; }
+    if (options === void 0) { options = {}; }
     if (window.layui) {
         layui.layer.alert(content, options, yes);
     }
     else {
-        setTimeout(() => {
+        setTimeout(function () {
             alert(content, options, yes);
         }, 200);
     }
 }
-export default {
-    install, alert, confirm, msg, tips, loading
+exports.alert = alert;
+exports["default"] = {
+    install: install, alert: alert, confirm: confirm, msg: msg, tips: tips, loading: loading
 };

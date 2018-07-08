@@ -3,42 +3,25 @@
         <slot></slot>
     </div>
 </template>
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-
-//TODO 导入搜索接口
-//props的属性一般不需要再在类中进行初始化
-@Component({
+<script>
+export default {
+  name: "Collapse",
   props: {
-    // demo:{
-    //     type:String,
-    //     default:()=>{return {}}
-    // }
     accordion: {
       type: Boolean,
       default: false
     }
   },
-  components: {}
-})
-//TODO 更改类名
-export default class Collapse extends Vue {
-  accordion: boolean | any;
-  get attr() {
-    let r: any = {};
-    if (this.accordion) {
-      r["lay-accordion"] = "lay-accordion";
+  computed: {
+    attr() {
+      let r = {};
+      if (this.accordion) {
+        r["lay-accordion"] = "lay-accordion";
+      }
+      return r;
     }
-    return r;
   }
-  mounted() {
-    //组件被加载的时候触发
-  }
-  created() {
-    // 组件被创建的时候触发
-  }
-}
+};
 </script>
 <style scoped>
 </style>

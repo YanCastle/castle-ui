@@ -1,18 +1,10 @@
 <template>
     <table class="layui-table" v-bind="attr"></table>
 </template>
-<script lang="ts">
-import Vue from "vue";
-import Component from "vue-class-component";
-
-// http://www.if(window['layui'])layui.com/doc/element/table.html
-//props的属性一般不需要再在类中进行初始化
-@Component({
+<script>
+export default {
+  name: "Table",
   props: {
-    // demo:{
-    //     type:String,
-    //     default:()=>{return {}}
-    // }
     size: {
       type: String,
       default: "",
@@ -32,33 +24,28 @@ import Component from "vue-class-component";
       default: true
     }
   },
-  components: {}
-})
-//TODO 更改类名
-export default class Table extends Vue {
-  size: string | any;
-  skin: string | any;
-  even: boolean | any;
-  get attr() {
-    let a = {};
-    if (this.even) {
-      a["lay-even"] = "lay-even";
+  data() {
+    return {};
+  },
+  mounted() {},
+  computed: {
+    attr() {
+      let a = {};
+      if (this.even) {
+        a["lay-even"] = "lay-even";
+      }
+      if (this.size) {
+        a["lay-size"] = this.size;
+      }
+      if (this.skin) {
+        a["lay-skin"] = this.skin;
+      }
+      return a;
     }
-    if (this.size) {
-      a["lay-size"] = this.size;
-    }
-    if (this.skin) {
-      a["lay-skin"] = this.skin;
-    }
-    return a;
-  }
-  mounted() {
-    //组件被加载的时候触发
-  }
-  created() {
-    // 组件被创建的时候触发
-  }
-}
+  },
+  created() {},
+  methods: {}
+};
 </script>
 <style scoped>
 </style>
