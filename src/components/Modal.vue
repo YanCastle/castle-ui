@@ -86,10 +86,12 @@ export default {
           shade: 0,
           success: () => {
             $(".layui-layer-content");
+            this.$emit("success", { dom: this.$refs.content });
           },
           end: () => {
             $(this.$refs.content).hide();
             this.$emit("input", false);
+            this.$emit("closed", { dom: this.$refs.content });
           }
         })
       );
