@@ -78,22 +78,24 @@ export default {
       //   console.log($(this.$refs.content).parents);
       $(this.$refs.content).show();
       this.layerIndex = layui.layer.open(
-        Object.assign(this.options, {
-          title: this.title,
-          content: $(this.$refs.content),
-          type: type.indexOf(this.type) + 1,
-          btn: [],
-          shade: 0,
-          success: () => {
-            $(".layui-layer-content");
-            this.$emit("success", { dom: this.$refs.content });
+        Object.assign(
+          {
+            title: this.title,
+            content: $(this.$refs.content),
+            type: type.indexOf(this.type) + 1,
+            shade: 0,
+            success: () => {
+              $(".layui-layer-content");
+              this.$emit("success", { dom: this.$refs.content });
+            },
+            end: () => {
+              $(this.$refs.content).hide();
+              this.$emit("input", false);
+              this.$emit("closed", { dom: this.$refs.content });
+            }
           },
-          end: () => {
-            $(this.$refs.content).hide();
-            this.$emit("input", false);
-            this.$emit("closed", { dom: this.$refs.content });
-          }
-        })
+          this.options
+        )
       );
     }
   }
