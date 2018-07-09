@@ -1,5 +1,5 @@
 <template>  
-    <div ref="content" :class="classes">
+    <div ref="content">
         <slot></slot>
     </div>
 </template>
@@ -60,7 +60,8 @@ export default {
   },
   computed: {
     classes() {
-      return this.value ? [] : ["hidden"];
+      // return this.value ? "" : "hidden";
+      // return [];
     }
   },
   methods: {
@@ -74,6 +75,7 @@ export default {
     show() {
       //   let content = this.$refs.content;
       //   console.log($(this.$refs.content).parents);
+      $(this.$refs.content).show();
       this.layerIndex = layui.layer.open(
         Object.assign(this.options, {
           title: this.title,
@@ -85,6 +87,7 @@ export default {
             $(".layui-layer-content");
           },
           end: () => {
+            $(this.$refs.content).hide();
             this.$emit("input", false);
           }
         })
@@ -95,6 +98,6 @@ export default {
 </script>
 <style scoped>
 .hidden {
-  display: none;
+  /* display: none; */
 }
 </style>
