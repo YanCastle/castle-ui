@@ -19,7 +19,7 @@ export default {
     },
     val: {
       type: [String, Number],
-      default: "Radio"
+      default: "0"
     }
   },
   data() {

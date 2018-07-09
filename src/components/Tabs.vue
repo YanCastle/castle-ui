@@ -20,7 +20,7 @@ export default {
   },
 
   mounted() {
-    this.$nextTicx(() => {
+    this.$nextTick(() => {
       setTimeout(() => {
         layui.element.render("tab");
       }, 100);

@@ -1,5 +1,5 @@
 <template>  
-    <div ref="content">
+    <div ref="content" :class="classes">
         <slot></slot>
     </div>
 </template>
@@ -58,6 +58,11 @@ export default {
       layerIndex: -1
     };
   },
+  computed: {
+    classes() {
+      return this.value ? [] : ["hidden"];
+    }
+  },
   methods: {
     open() {
       if (window.layui) {
@@ -89,4 +94,7 @@ export default {
 };
 </script>
 <style scoped>
+.hidden {
+  display: none;
+}
 </style>

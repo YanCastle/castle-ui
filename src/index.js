@@ -36,6 +36,7 @@ var Modal_vue_1 = require("./components/Modal.vue");
 var Icon_vue_1 = require("./components/Icon.vue");
 var Tabs_vue_1 = require("./components/Tabs.vue");
 var TabPanel_vue_1 = require("./components/TabPanel.vue");
+var Uploader = require("./components/Uploader.vue")['default'];
 var index_1 = require("./utils/index");
 var ui = {
     Row: Row_vue_1["default"],
@@ -74,7 +75,8 @@ var ui = {
     Modal: Modal_vue_1["default"],
     Icon: Icon_vue_1["default"],
     Tabs: Tabs_vue_1["default"],
-    TabPanel: TabPanel_vue_1["default"]
+    TabPanel: TabPanel_vue_1["default"],
+    Uploader
 };
 
 function init() {
