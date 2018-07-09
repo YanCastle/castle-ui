@@ -155,7 +155,10 @@ export default {
       }
     },
     choose(obj) {
-      console.log(obj);
+      var files = obj.pushFile();
+      obj.preview((index, file, result) => {
+        console.log(index, file, result);
+      });
     },
     done(res, index, upload) {
       this.$emit("success", {
