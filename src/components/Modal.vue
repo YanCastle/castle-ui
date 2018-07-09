@@ -34,6 +34,7 @@ export default {
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
+      $(this.$refs.content).hide();
       if (this.value) {
         this.open();
       }
