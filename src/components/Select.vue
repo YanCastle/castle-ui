@@ -22,6 +22,9 @@ export default {
     },
     options: {
       type: [Object, Array]
+      // validator:(v)=>{
+
+      // }
     }
   },
   data() {

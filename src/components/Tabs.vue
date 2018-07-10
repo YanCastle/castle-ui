@@ -20,20 +20,25 @@ export default {
   },
 
   mounted() {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        layui.element.render("tab");
-      }, 100);
-    });
+    this.render();
   },
   computed: {},
   created() {},
   methods: {
+    render() {
+      if (window.layui) {
+        layui.element.render("tab");
+      } else {
+        setTimeout(() => {
+          this.render();
+        }, 100);
+      }
+    },
     addPanel(title) {
       this.titles.push({
         title
       });
-      layui.element.render("tab");
+      this.render();
     }
   }
 };
