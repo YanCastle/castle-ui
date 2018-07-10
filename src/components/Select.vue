@@ -10,7 +10,7 @@ export default {
   name: "Select",
   props: {
     value: {
-      type: [String, Number]
+      type: [String, Number, Array, Object]
     },
     verify: {
       type: String,
@@ -58,13 +58,13 @@ export default {
       this.$emit(
         "input",
         this.options[this.selectvalue]
-          ? this.options[this.selectvalue].data
+          ? this.options[this.selectvalue].value
           : ""
       );
       this.$emit(
         "change",
         this.options[this.selectvalue]
-          ? this.options[this.selectvalue].data
+          ? this.options[this.selectvalue].value
           : ""
       );
     }

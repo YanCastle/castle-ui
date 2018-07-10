@@ -49,6 +49,9 @@ function rangeValidator(v, range, name) {
 exports.rangeValidator = rangeValidator;
 
 function find(objs, obj) {
+    if (undefined === objs || null === objs) {
+        return false;
+    }
     let k = Object.keys(objs)
     for (let v of k) {
         if (objs[k] == obj) {

@@ -13,7 +13,9 @@ export default {
     },
     value: {
       type: Array,
-      default: []
+      default: () => {
+        return [];
+      }
     },
     skin: {
       type: String,
@@ -21,7 +23,9 @@ export default {
     },
     options: {
       type: [Object, Array],
-      default: [],
+      default: () => {
+        return [];
+      },
       validator: v => {
         for (let o of v) {
           if (!o.value || !o.title) {
