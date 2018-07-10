@@ -33,6 +33,7 @@ export default {
       this.titles.push({
         title
       });
+      layui.element.render("tab");
     }
   }
 };

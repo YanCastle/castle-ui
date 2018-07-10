@@ -31,12 +31,13 @@ export default {
       if (window["layui"]) layui.form.render("radio");
     });
   },
-  created() {
-    this.$watch("value", () => {
+  created() {},
+  watch: {
+    value() {
       this.$nextTick(() => {
         if (window["layui"]) layui.form.render("radio");
       });
-    });
+    }
   },
   methods: {
     change(event) {

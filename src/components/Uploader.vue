@@ -113,6 +113,10 @@ export default {
       //   validator: v => {
       //     return v.length==0||v;
       //   }
+    },
+    preview: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -155,10 +159,19 @@ export default {
       }
     },
     choose(obj) {
-      var files = obj.pushFile();
-      obj.preview((index, file, result) => {
-        console.log(index, file, result);
-      });
+      let files = obj.pushFile();
+      let preview = [];
+      if (this.preview) {
+        obj.preview((index, file, result) => {
+          // console.log(index, file, result);
+          preview.push({
+            index,
+            file,
+            result
+          });
+        });
+      }
+      this.$emit("choose", { files, preview });
     },
     done(res, index, upload) {
       this.$emit("success", {

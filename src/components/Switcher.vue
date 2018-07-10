@@ -24,13 +24,22 @@ export default {
   computed: {},
   created() {
     // 组件被创建的时候触发
-    this.$watch("value", () => {
-      this.$nextTick(() => {
-        if (window["layui"]) layui.form.render("checkbox");
-      });
-    });
+  },
+  watch: {
+    value() {
+      this.render();
+    }
   },
   methods: {
+    render() {
+      if (layui) {
+        layui.form.render("checkbox");
+      } else {
+        setTimeout(() => {
+          this.render();
+        }, 50);
+      }
+    },
     change(event) {
       this.$emit("input", event.target.checked);
       this.$emit("change", { event });

@@ -43,7 +43,9 @@ export default {
   created() {
     // 组件被创建的时候触发
     window.modalid++;
-    this.$watch("value", n => {
+  },
+  watch: {
+    value(n) {
       if (n) {
         this.open();
       } else {
@@ -52,7 +54,7 @@ export default {
           this.layerIndex = -1;
         }
       }
-    });
+    }
   },
   data() {
     return {
