@@ -1,10 +1,11 @@
 <template>
     <select :name="name" v-model="selectvalue" @change="change">
-        <!-- <option v-for="(v,k) in options" :value="k" :key="k">{{v.text}}</option> -->
-        <slot></slot>
+        <option v-for="(v,k) in options" :value="k" :key="k">{{v.text}}</option>
+        <!-- <slot></slot> -->
     </select>
 </template>
 <script>
+import { find } from "../utils";
 export default {
   name: "Select",
   props: {
@@ -42,7 +43,7 @@ export default {
   methods: {
     render() {
       if (window.layui) {
-        this.selectvalue = this.value;
+        this.selectvalue = find(this.options, this.value);
         layui.form.render("select");
       } else {
         setTimeout(() => {
@@ -51,7 +52,18 @@ export default {
       }
     },
     change() {
-      this.$emit("input", this.selectvalue);
+      this.$emit(
+        "input",
+        this.options[this.selectvalue]
+          ? this.options[this.selectvalue].data
+          : ""
+      );
+      this.$emit(
+        "change",
+        this.options[this.selectvalue]
+          ? this.options[this.selectvalue].data
+          : ""
+      );
     }
   }
 };
