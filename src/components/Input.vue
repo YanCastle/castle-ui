@@ -49,6 +49,11 @@ export default {
       return p;
     }
   },
+  watch: {
+    value() {
+      this.$refs.input.value = this.value;
+    }
+  },
   methods: {
     handleInput(event) {
       let value = event.target.value;
