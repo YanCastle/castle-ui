@@ -37,6 +37,7 @@ var Icon_vue_1 = require("./components/Icon.vue");
 var Tabs_vue_1 = require("./components/Tabs.vue");
 var TabPanel_vue_1 = require("./components/TabPanel.vue");
 var Uploader = require("./components/Uploader.vue")['default'];
+var Code = require("./components/Code.vue")['default'];
 var index_1 = require("./utils/index");
 var ui = {
     Row: Row_vue_1["default"],
@@ -76,7 +77,8 @@ var ui = {
     Icon: Icon_vue_1["default"],
     Tabs: Tabs_vue_1["default"],
     TabPanel: TabPanel_vue_1["default"],
-    Uploader
+    Uploader,
+    Code,
 };
 
 function init() {

@@ -1,5 +1,6 @@
 <template>
-    <input type="checkbox"  name="switcher" lay-skin="switch" :lay-text="text" :checked="value?'checked':''" @change="change">
+    <input type="checkbox"  name="switcher" lay-filter="switcher" lay-skin="switch" :lay-text="text" :checked="value?'checked':''" @change="change">
+    <!-- <input type="checkbox" name="switch" lay-skin="switch"> -->
 </template>
 <script>
 export default {
@@ -20,7 +21,11 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    this.$nextTick(() => {
+      this.render();
+    });
+  },
   computed: {},
   created() {
     // 组件被创建的时候触发
@@ -32,8 +37,8 @@ export default {
   },
   methods: {
     render() {
-      if (layui) {
-        layui.form.render("checkbox");
+      if (window.layui) {
+        layui.form.render();
       } else {
         setTimeout(() => {
           this.render();
