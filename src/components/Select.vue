@@ -1,6 +1,7 @@
 <template>
-    <select :name="name">
-        <option v-for="(v,k) in options" :value="v.value" :key="k">{{v.text}}</option>
+    <select :name="name" v-model="selectvalue" @change="change">
+        <!-- <option v-for="(v,k) in options" :value="k" :key="k">{{v.text}}</option> -->
+        <slot></slot>
     </select>
 </template>
 <script>
@@ -23,7 +24,9 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      selectvalue: ""
+    };
   },
   mounted() {
     //组件被加载的时候触发
@@ -39,12 +42,16 @@ export default {
   methods: {
     render() {
       if (window.layui) {
+        this.selectvalue = this.value;
         layui.form.render("select");
       } else {
         setTimeout(() => {
           this.render();
         }, 100);
       }
+    },
+    change() {
+      this.$emit("input", this.selectvalue);
     }
   }
 };
