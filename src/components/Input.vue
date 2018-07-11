@@ -49,6 +49,9 @@ export default {
       return p;
     }
   },
+  mounted() {
+    this.$refs.input.value = this.value;
+  },
   watch: {
     value() {
       this.$refs.input.value = this.value;
