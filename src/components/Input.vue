@@ -1,5 +1,5 @@
 <template>
-    <input type="text" class="layui-input" v-bind="attr" @input="handleInput">    
+    <input type="text" ref="input" class="layui-input" v-bind="attr" @input="handleInput">    
 </template>
 <script>
 export default {
