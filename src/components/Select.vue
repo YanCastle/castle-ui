@@ -37,12 +37,12 @@ export default {
     this.render();
   },
   watch: {
-    value: () => {
+    value() {
       this.render();
     },
     options: {
       deep: true,
-      hander: () => {
+      hander() {
         this.render();
       }
     }
