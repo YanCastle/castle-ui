@@ -1,11 +1,15 @@
 <template>
     <select :name="name" v-model="selectvalue" @change="change">
-        <option v-for="(v,k) in options" :value="k" :key="k">{{v.text}}</option>
+        <option v-for="(v,k) in options" :value="k" :selected="selectvalue==v" :key="k">{{v.text}}</option>
         <!-- <slot></slot> -->
     </select>
 </template>
 <script>
 import { find } from "../utils";
+import { setTimeout } from "timers";
+const selectConfig = {
+  index: 0
+};
 export default {
   name: "Select",
   props: {
@@ -28,8 +32,11 @@ export default {
     }
   },
   data() {
+    selectConfig.index++;
     return {
-      selectvalue: ""
+      selectvalue: "",
+      selectfilter: "select" + selectConfig.index,
+      d: Date.now()
     };
   },
   mounted() {
@@ -40,11 +47,11 @@ export default {
     value() {
       this.render();
     },
-    options: {
-      deep: true,
-      hander() {
+    options() {
+      console.log(this.options);
+      this.$nextTick(() => {
         this.render();
-      }
+      });
     }
   },
   computed: {},
@@ -52,13 +59,19 @@ export default {
   methods: {
     render() {
       if (window.layui) {
-        this.selectvalue = find(this.options, this.value);
-        layui.form.render("select");
+        // setTimeout(() => {
+        this.layui();
+        // }, 50);
       } else {
         setTimeout(() => {
           this.render();
         }, 100);
       }
+    },
+    layui() {
+      console.log(this.selectfilter, "layui");
+      this.selectvalue = find(this.options, this.value);
+      layui.form.render("select");
     },
     change() {
       this.$emit(
