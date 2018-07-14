@@ -39,6 +39,7 @@ var TabPanel_vue_1 = require("./components/TabPanel.vue");
 var Uploader = require("./components/Uploader.vue")['default'];
 var Code = require("./components/Code.vue")['default'];
 var index_1 = require("./utils/index");
+var filters = require("./utils/filters");
 var ui = {
     Row: Row_vue_1["default"],
     Col: Col_vue_1["default"],
@@ -119,6 +120,9 @@ function install(Vue, opts) {
     Vue.prototype.$alert = alert;
     Vue.prototype.$confirm = confirm;
     Vue.prototype.$tips = tips;
+    for (const key in filters) {
+        Vue.filter(key, filters[key])
+    }
     if (!window.layui) {
         index_1.load_css(opts.server + '/css/layui.css');
         index_1.load_js(opts.server + '/layui.all.js', function () {
