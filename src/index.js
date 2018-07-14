@@ -120,8 +120,8 @@ function install(Vue, opts) {
     Vue.prototype.$confirm = confirm;
     Vue.prototype.$tips = tips;
     if (!window.layui) {
-        index_1.load_css(opts.server);
-        index_1.load_js(opts.server, function () {
+        index_1.load_css('http://' + opts.server + '/css/layui.css');
+        index_1.load_js('http://' + opts.server + '/layui.all.js', function () {
             init();
         });
     } else {
