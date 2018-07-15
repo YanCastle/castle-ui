@@ -36,6 +36,7 @@ var Modal_vue_1 = require("./components/Modal.vue");
 var Icon_vue_1 = require("./components/Icon.vue");
 var Tabs_vue_1 = require("./components/Tabs.vue");
 var TabPanel_vue_1 = require("./components/TabPanel.vue");
+var Iconfont = require("./components/Iconfont.vue")['default'];
 var Uploader = require("./components/Uploader.vue")['default'];
 var Code = require("./components/Code.vue")['default'];
 var index_1 = require("./utils/index");
@@ -79,6 +80,7 @@ var ui = {
     Tabs: Tabs_vue_1["default"],
     TabPanel: TabPanel_vue_1["default"],
     Uploader,
+    Iconfont,
     Code,
 };
 
@@ -103,6 +105,9 @@ function init() {
         data.elem.dispatchEvent(new Event('change'));
     });
 }
+export const config = {
+    iconfont: 'icon'
+}
 /**
  * 安装
  * @param Vue
@@ -122,6 +127,12 @@ function install(Vue, opts) {
     Vue.prototype.$tips = tips;
     for (const key in filters) {
         Vue.filter(key, filters[key])
+    }
+    if (opts.iconfont) {
+        config.iconfont = opts.iconfont
+    }
+    if (opts.iconfont_url) {
+        index_1.load_css(opts.iconfont_url);
     }
     if (!window.layui) {
         index_1.load_css(opts.server + '/css/layui.css');
