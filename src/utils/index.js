@@ -1,11 +1,11 @@
 "use strict";
-exports.__esModule = true;
+export const __esModule = true;
 /**
  * 动态加载JS
  * @param {string} url 脚本地址
  * @param {function} callback  回调函数
  */
-function load_js(url, callback) {
+export function load_js(url, callback) {
     var head = document.getElementsByTagName('head')[0];
     var script = document.createElement('script');
     script.type = 'text/javascript';
@@ -20,12 +20,11 @@ function load_js(url, callback) {
     }
     head.appendChild(script);
 }
-exports.load_js = load_js;
 /**
  * 动态加载CSS
  * @param {string} url 样式地址
  */
-function load_css(url) {
+export function load_css(url) {
     var head = document.getElementsByTagName('head')[0];
     var link = document.createElement('link');
     link.type = 'text/css';
@@ -33,9 +32,8 @@ function load_css(url) {
     link.href = url;
     head.appendChild(link);
 }
-exports.load_css = load_css;
 
-function rangeValidator(v, range, name) {
+export function rangeValidator(v, range, name) {
     if (name === void 0) {
         name = '';
     }
@@ -46,9 +44,8 @@ function rangeValidator(v, range, name) {
         return false;
     }
 }
-exports.rangeValidator = rangeValidator;
 
-function find(objs, obj) {
+export function find(objs, obj) {
     if (undefined === objs || null === objs) {
         return false;
     }
@@ -60,5 +57,3 @@ function find(objs, obj) {
     }
     return false;
 }
-
-exports.find = find;

@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+export const __esModule = true;
 var Row_vue_1 = require("./components/Row.vue");
 var Col_vue_1 = require("./components/Col.vue");
 var Anim_vue_1 = require("./components/Anim.vue");
@@ -150,7 +150,7 @@ function install(Vue, opts) {
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-function tips(content, follow, options) {
+export function tips(content, follow, options) {
     if (follow === void 0) {
         follow = '';
     }
@@ -165,14 +165,13 @@ function tips(content, follow, options) {
         }, 200);
     }
 }
-exports.tips = tips;
 /**
  * 加载中提示
  * @param icon
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-function loading(icon, options) {
+export function loading(icon, options) {
     if (icon === void 0) {
         icon = '';
     }
@@ -187,7 +186,6 @@ function loading(icon, options) {
         }, 200);
     }
 }
-exports.loading = loading;
 /**
  * msg 提示
  * @param content
@@ -195,7 +193,7 @@ exports.loading = loading;
  * @param end
  * @link http://www.layui.com/doc/modules/layer.html
  */
-function msg(content, options, end) {
+export function msg(content, options, end) {
     if (content === void 0) {
         content = "";
     }
@@ -213,7 +211,6 @@ function msg(content, options, end) {
         }, 200);
     }
 }
-exports.msg = msg;
 /**
  * 确认对话框
  * @param content
@@ -222,7 +219,7 @@ exports.msg = msg;
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-function confirm(content, yes, cancel, options) {
+export function confirm(content, yes, cancel, options) {
     if (content === void 0) {
         content = '';
     }
@@ -237,7 +234,6 @@ function confirm(content, yes, cancel, options) {
         }, 200);
     }
 }
-exports.confirm = confirm;
 /**
  * 警告
  * @param content
@@ -245,7 +241,7 @@ exports.confirm = confirm;
  * @param options
  * @link http://www.layui.com/doc/modules/layer.html
  */
-function alert(content, yes, options) {
+export function alert(content, yes, options) {
     if (content === void 0) {
         content = '';
     }
@@ -260,8 +256,7 @@ function alert(content, yes, options) {
         }, 200);
     }
 }
-exports.alert = alert;
-exports["default"] = {
+export default {
     install: install,
     alert: alert,
     confirm: confirm,
