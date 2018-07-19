@@ -6,7 +6,7 @@ export default {
   name: "Input",
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       default: ""
     },
     required: {

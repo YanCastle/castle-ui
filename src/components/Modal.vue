@@ -5,7 +5,11 @@
 </template>
 <script>
 import { rangeValidator } from "../utils";
+import { setInterval } from "timers";
 const type = ["content", "html", "iframe", "loading", "tips"];
+const modalConfig = {
+  intl: false
+};
 export default {
   name: "Modal",
   props: {
@@ -34,7 +38,7 @@ export default {
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
-      $(this.$refs.content).hide();
+      // layui.$(this.$refs.content).hide();
       if (this.value) {
         this.open();
       }
@@ -77,21 +81,30 @@ export default {
     },
     show() {
       //   let content = this.$refs.content;
-      //   console.log($(this.$refs.content).parents);
-      $(this.$refs.content).show();
+      //   console.log(layui.$(this.$refs.content).parents);
+      if (!window.layui && modalConfig.intl === false) {
+        modalConfig.intl = setInterval(() => {
+          this.show();
+        }, 50);
+        return;
+      }
+      if (modalConfig.intl > 0) {
+        modalConfig.intl = false;
+      }
+      layui.$(this.$refs.content).show();
       this.layerIndex = layui.layer.open(
         Object.assign(
           {
             title: this.title,
-            content: $(this.$refs.content),
+            content: layui.$(this.$refs.content),
             type: type.indexOf(this.type) + 1,
             shade: 0,
             success: () => {
-              $(".layui-layer-content");
+              layui.$(".layui-layer-content");
               this.$emit("success", { dom: this.$refs.content });
             },
             end: () => {
-              $(this.$refs.content).hide();
+              layui.$(this.$refs.content).hide();
               this.$emit("input", false);
               this.$emit("closed", { dom: this.$refs.content });
             }

@@ -1,5 +1,4 @@
 "use strict";
-export const __esModule = true;
 var Row_vue_1 = require("./components/Row.vue");
 var Col_vue_1 = require("./components/Col.vue");
 var Anim_vue_1 = require("./components/Anim.vue");
