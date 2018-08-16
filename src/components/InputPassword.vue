@@ -1,5 +1,5 @@
 <template>
-    <input type="password" class="layui-input" v-bind="attr">    
+    <input type="password" class="layui-input" v-bind="attr" @input="handleInput">    
 </template>
 <script>
 export default {
@@ -36,6 +36,20 @@ export default {
       }
       p.autocomplete = this.autocomplete ? "on" : "off";
       return p;
+    }
+  },
+  mounted() {
+    this.$refs.input.value = this.value;
+  },
+  watch: {
+    value() {
+      this.$refs.input.value = this.value;
+    }
+  },
+  methods: {
+    handleInput(event) {
+      let value = event.target.value;
+      this.$emit("input", value);
     }
   }
 };
