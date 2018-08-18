@@ -134,8 +134,8 @@ function install(Vue, opts) {
         index_1.load_css(opts.iconfont_url);
     }
     if (!window.layui) {
-        index_1.load_css(opts.server + '/css/layui.css');
-        index_1.load_js(opts.server + '/layui.all.js', function () {
+        index_1.load_css('//unpkg.com/castle-ui@1.0.28/dist/css/layui.css');
+        index_1.load_js('//unpkg.com/castle-ui/dist/layui.all.js', function () {
             init();
         });
     } else {

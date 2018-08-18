@@ -1,5 +1,5 @@
 <template>
-    <div class="layui-card">
+    <div class="layui-card" @click="click">
         <div class="layui-card-header">{{title}}</div>
         <div class="layui-card-body">
             <slot></slot>
@@ -12,6 +12,11 @@ export default {
   props: {
     title: {
       type: String
+    }
+  },
+  methods:{
+    click(e){
+      this.$emit('click',e)
     }
   }
 };

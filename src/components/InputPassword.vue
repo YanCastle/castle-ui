@@ -21,7 +21,7 @@ export default {
       type: Boolean,
       default: false
     }
-  },
+  },  
   computed: {
     attr() {
       let p = {};
