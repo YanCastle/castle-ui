@@ -1,5 +1,5 @@
 <template>  
-    <div ref="content">
+    <div ref="content" class="hidden">
         <slot></slot>
     </div>
 </template>
@@ -118,6 +118,6 @@ export default {
 </script>
 <style scoped>
 .hidden {
-  /* display: none; */
+  display: none;
 }
 </style>
