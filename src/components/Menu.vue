@@ -48,5 +48,10 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
+.layui-nav {
+  top: none;
+  bottom: none;
+  height: 100%;
+}
 </style>
