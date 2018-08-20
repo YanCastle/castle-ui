@@ -50,8 +50,8 @@ export default {
 </script>
 <style>
 .layui-nav {
-  top: none;
-  bottom: none;
+  top: auto;
+  bottom: auto;
   height: 100%;
 }
 </style>
