@@ -20,8 +20,12 @@ export default {
     autocomplete: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: [String],
+      default: ""
     }
-  },  
+  },
   computed: {
     attr() {
       let p = {};
