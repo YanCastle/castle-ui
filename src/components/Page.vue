@@ -52,30 +52,24 @@ export default {
   },
   methods: {
     page() {
-      if (layui) {
-        layui.laypage.render(
-          Object.assign(
-            {
-              elem: this.id,
-              count: this.total,
-              limit: this.limit,
-              prev: this.prev,
-              curr: this.value,
-              next: this.next,
-              first: this.first,
-              last: this.last,
-              jump: (obj, first) => {
-                this.$emit("input", obj.curr);
-              }
-            },
-            this.options
-          )
-        );
-      } else {
-        setTimeout(() => {
-          this.page();
-        }, 50);
-      }
+      layui.laypage.render(
+        Object.assign(
+          {
+            elem: this.id,
+            count: this.total,
+            limit: this.limit,
+            prev: this.prev,
+            curr: this.value,
+            next: this.next,
+            first: this.first,
+            last: this.last,
+            jump: (obj, first) => {
+              this.$emit("input", obj.curr);
+            }
+          },
+          this.options
+        )
+      );
     }
   },
   computed: {},

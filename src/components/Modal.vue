@@ -73,24 +73,9 @@ export default {
   },
   methods: {
     open() {
-      if (window.layui) {
-        this.show();
-      } else {
-        setTimeout(this.open, 100);
-      }
+      this.show();
     },
     show() {
-      //   let content = this.$refs.content;
-      //   console.log(layui.$(this.$refs.content).parents);
-      if (!window.layui && modalConfig.intl === false) {
-        modalConfig.intl = setInterval(() => {
-          this.show();
-        }, 50);
-        return;
-      }
-      if (modalConfig.intl > 0) {
-        modalConfig.intl = false;
-      }
       layui.$(this.$refs.content).show();
       this.layerIndex = layui.layer.open(
         Object.assign(

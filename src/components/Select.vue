@@ -1,7 +1,6 @@
 <template>
-    <select :name="name" v-model="selectvalue" @change="change">
-        <option v-for="(v,k) in options" :value="k" :selected="selectvalue==v" :key="k">{{v.text}}</option>
-        <!-- <slot></slot> -->
+    <select :name="name" v-model="selectvalue" :lay-filter="selectfilter" @change="change">
+        <slot></slot>
     </select>
 </template>
 <script>
@@ -22,7 +21,9 @@ export default {
     },
     name: {
       type: String,
-      default: "name"
+      default: () => {
+        return `selecter${selectConfig.index}`;
+      }
     },
     options: {
       type: [Object, Array]
@@ -41,51 +42,21 @@ export default {
   },
   mounted() {
     //组件被加载的时候触发
+    this.selectvalue = this.value;
     this.render();
   },
   watch: {
-    value() {
-      this.render();
-    },
-    options() {
-      console.log(this.options);
-      this.$nextTick(() => {
-        this.render();
-      });
-    }
+    value() {}
   },
   computed: {},
   created() {},
   methods: {
     render() {
-      if (window.layui) {
-        // setTimeout(() => {
-        this.layui();
-        // }, 50);
-      } else {
-        setTimeout(() => {
-          this.render();
-        }, 100);
-      }
-    },
-    layui() {
-      console.log(this.selectfilter, "layui");
-      this.selectvalue = find(this.options, this.value);
       layui.form.render("select");
     },
-    change() {
-      this.$emit(
-        "input",
-        this.options[this.selectvalue]
-          ? this.options[this.selectvalue].value
-          : ""
-      );
-      this.$emit(
-        "change",
-        this.options[this.selectvalue]
-          ? this.options[this.selectvalue].value
-          : ""
-      );
+    change(event) {
+      this.$emit("input", event.target.value);
+      this.$emit("change", event.target.value);
     }
   }
 };

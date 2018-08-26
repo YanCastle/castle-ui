@@ -1,6 +1,6 @@
 <template>
     <div class="layui-card" @click="click">
-        <div class="layui-card-header">{{title}}</div>
+        <div class="layui-card-header" v-html="title"></div>
         <div class="layui-card-body">
             <slot></slot>
         </div>
@@ -14,9 +14,9 @@ export default {
       type: String
     }
   },
-  methods:{
-    click(e){
-      this.$emit('click',e)
+  methods: {
+    click(e) {
+      this.$emit("click", e);
     }
   }
 };

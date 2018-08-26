@@ -1,5 +1,5 @@
 <template>
-    <input ref="radio" type="radio" :name="name" :title="title" :checked="value==val?'checked':''" @change="change">
+    <input ref="radio" type="radio" :name="name" :title="title" v-model="radiovalue" :checked="value==val?'checked':''" @change="change">
 </template>
 <script>
 export default {
@@ -23,20 +23,24 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      radiovalue: ""
+    };
   },
   mounted() {
     //组件被加载的时候触发
+    this.radiovalue = this.value;
     this.$nextTick(() => {
-      if (window["layui"]) layui.form.render("radio");
+      layui.form.render("radio");
     });
   },
   created() {},
   watch: {
     value() {
-      this.$nextTick(() => {
-        if (window["layui"]) layui.form.render("radio");
-      });
+      this.radiovalue = this.value;
+      // this.$nextTick(() => {
+      //   layui.form.render("radio");
+      // });
     }
   },
   methods: {

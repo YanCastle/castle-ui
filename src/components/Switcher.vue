@@ -37,13 +37,7 @@ export default {
   },
   methods: {
     render() {
-      if (window.layui) {
-        layui.form.render();
-      } else {
-        setTimeout(() => {
-          this.render();
-        }, 50);
-      }
+      layui.form.render();
     },
     change(event) {
       this.$emit("input", event.target.checked);

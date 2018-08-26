@@ -1,46 +1,47 @@
 "use strict";
-var Row_vue_1 = require("./components/Row.vue");
-var Col_vue_1 = require("./components/Col.vue");
-var Anim_vue_1 = require("./components/Anim.vue");
-var Badge_vue_1 = require("./components/Badge.vue");
-var Blockquoto_vue_1 = require("./components/Blockquoto.vue");
-var ButtonContainer_vue_1 = require("./components/ButtonContainer.vue");
-var ButtonGroup_vue_1 = require("./components/ButtonGroup.vue");
-var Container_vue_1 = require("./components/Container.vue");
-var Button_vue_1 = require("./components/Button.vue");
-var Select_vue_1 = require("./components/Select.vue");
-var Form_vue_1 = require("./components/Form.vue");
-var FormItem_vue_1 = require("./components/FormItem.vue");
-var Input_vue_1 = require("./components/Input.vue");
-var InputPassword_vue_1 = require("./components/InputPassword.vue");
-var CheckboxGroup_vue_1 = require("./components/CheckboxGroup.vue");
-var Switcher_vue_1 = require("./components/Switcher.vue");
-var Radio_vue_1 = require("./components/Radio.vue");
-var Textarea_vue_1 = require("./components/Textarea.vue");
-var Progress_vue_1 = require("./components/Progress.vue");
-var Card_vue_1 = require("./components/Card.vue");
-var Collapse_vue_1 = require("./components/Collapse.vue");
-var CollapseItem_vue_1 = require("./components/CollapseItem.vue");
-var Hr_vue_1 = require("./components/Hr.vue");
-var Menu_vue_1 = require("./components/Menu.vue");
-var MenuRow_vue_1 = require("./components/MenuRow.vue");
-var MenuItem_vue_1 = require("./components/MenuItem.vue");
-var Side_vue_1 = require("./components/Side.vue");
-var LayoutFooter_vue_1 = require("./components/LayoutFooter.vue");
-var Layout_vue_1 = require("./components/Layout.vue");
-var LayoutRight_vue_1 = require("./components/LayoutRight.vue");
-var LayoutLeft_vue_1 = require("./components/LayoutLeft.vue");
-var LayoutBody_vue_1 = require("./components/LayoutBody.vue");
-var Modal_vue_1 = require("./components/Modal.vue");
-var Icon_vue_1 = require("./components/Icon.vue");
-var Tabs_vue_1 = require("./components/Tabs.vue");
-var TabPanel_vue_1 = require("./components/TabPanel.vue");
-var Iconfont = require("./components/Iconfont.vue")['default'];
-var Uploader = require("./components/Uploader.vue")['default'];
-var Code = require("./components/Code.vue")['default'];
-var index_1 = require("./utils/index");
-var filters = require("./utils/filters");
-var ui = {
+const Row_vue_1 = require("./components/Row.vue");
+const Col_vue_1 = require("./components/Col.vue");
+const Anim_vue_1 = require("./components/Anim.vue");
+const Badge_vue_1 = require("./components/Badge.vue");
+const Blockquoto_vue_1 = require("./components/Blockquoto.vue");
+const ButtonContainer_vue_1 = require("./components/ButtonContainer.vue");
+const ButtonGroup_vue_1 = require("./components/ButtonGroup.vue");
+const Container_vue_1 = require("./components/Container.vue");
+const Button_vue_1 = require("./components/Button.vue");
+const Select_vue_1 = require("./components/Select.vue");
+const Form_vue_1 = require("./components/Form.vue");
+const FormItem_vue_1 = require("./components/FormItem.vue");
+const Input_vue_1 = require("./components/Input.vue");
+const InputPassword_vue_1 = require("./components/InputPassword.vue");
+const CheckboxGroup_vue_1 = require("./components/CheckboxGroup.vue");
+const Switcher_vue_1 = require("./components/Switcher.vue");
+const Radio_vue_1 = require("./components/Radio.vue");
+const Textarea_vue_1 = require("./components/Textarea.vue");
+const Progress_vue_1 = require("./components/Progress.vue");
+const Card_vue_1 = require("./components/Card.vue");
+const Collapse_vue_1 = require("./components/Collapse.vue");
+const CollapseItem_vue_1 = require("./components/CollapseItem.vue");
+const Hr_vue_1 = require("./components/Hr.vue");
+const Menu_vue_1 = require("./components/Menu.vue");
+const MenuRow_vue_1 = require("./components/MenuRow.vue");
+const MenuItem_vue_1 = require("./components/MenuItem.vue");
+const Side_vue_1 = require("./components/Side.vue");
+const LayoutFooter_vue_1 = require("./components/LayoutFooter.vue");
+const Layout_vue_1 = require("./components/Layout.vue");
+const LayoutRight_vue_1 = require("./components/LayoutRight.vue");
+const LayoutLeft_vue_1 = require("./components/LayoutLeft.vue");
+const LayoutBody_vue_1 = require("./components/LayoutBody.vue");
+const Modal_vue_1 = require("./components/Modal.vue");
+const Icon_vue_1 = require("./components/Icon.vue");
+const Tabs_vue_1 = require("./components/Tabs.vue");
+const TabPanel_vue_1 = require("./components/TabPanel.vue");
+const Iconfont = require("./components/Iconfont.vue")['default'];
+const Uploader = require("./components/Uploader.vue")['default'];
+const Code = require("./components/Code.vue")['default'];
+const Page = require("./components/Page.vue")['default'];
+const index_1 = require("./utils/index");
+const filters = require("./utils/filters");
+const ui = {
     Row: Row_vue_1["default"],
     Col: Col_vue_1["default"],
     Anim: Anim_vue_1["default"],
@@ -81,6 +82,7 @@ var ui = {
     Uploader,
     Iconfont,
     Code,
+    Page
 };
 
 function init() {

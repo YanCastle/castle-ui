@@ -26,13 +26,7 @@ export default {
   created() {},
   methods: {
     render() {
-      if (window.layui) {
-        layui.element.render("tab");
-      } else {
-        setTimeout(() => {
-          this.render();
-        }, 100);
-      }
+      layui.element.render("tab");
     },
     addPanel(title) {
       this.titles.push({

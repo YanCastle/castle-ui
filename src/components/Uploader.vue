@@ -131,32 +131,26 @@ export default {
   },
   methods: {
     render() {
-      if (!window.layui) {
-        setTimeout(() => {
-          this.render();
-        }, 20);
-      } else {
-        layui.upload.render({
-          elem: `#${this.id}`,
-          url: this.url,
-          done: this.done,
-          error: this.error,
-          before: this.before,
-          choose: this.choose,
-          drug: this.drug,
-          number: this.number,
-          multiple: this.multiple,
-          size: this.size,
-          field: this.field,
-          auto: this.auto,
-          exts: this.exts,
-          accept: this.accept,
-          acceptMime: this.acceptMime,
-          headers: this.headers,
-          data: this.data,
-          method: this.method
-        });
-      }
+      layui.upload.render({
+        elem: `#${this.id}`,
+        url: this.url,
+        done: this.done,
+        error: this.error,
+        before: this.before,
+        choose: this.choose,
+        drug: this.drug,
+        number: this.number,
+        multiple: this.multiple,
+        size: this.size,
+        field: this.field,
+        auto: this.auto,
+        exts: this.exts,
+        accept: this.accept,
+        acceptMime: this.acceptMime,
+        headers: this.headers,
+        data: this.data,
+        method: this.method
+      });
     },
     choose(obj) {
       let files = obj.pushFile();
