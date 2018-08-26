@@ -1,5 +1,5 @@
 <template>
-    <input type="password" class="layui-input" v-bind="attr" @input="handleInput">    
+    <input ref="input" type="password" class="layui-input" v-bind="attr" @input="handleInput" @keydown.enter="enter">    
 </template>
 <script>
 export default {
@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    this.$refs.input.value = this.value;
+    // this.$refs.input.value = this.value;
   },
   watch: {
     value() {
@@ -54,6 +54,9 @@ export default {
     handleInput(event) {
       let value = event.target.value;
       this.$emit("input", value);
+    },
+    enter(event) {
+      this.$emit("enter", event.target.value);
     }
   }
 };
