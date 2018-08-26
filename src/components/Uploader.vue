@@ -175,10 +175,10 @@ export default {
       });
     },
     before(obj) {
-      console.log(obj);
+      this.$emit("before", obj);
     },
     error(index, upload) {
-      console.log(index, upload);
+      this.$emit("error", { index, upload });
     }
   },
   created() {
