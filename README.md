@@ -13,3 +13,15 @@ Vue.use(ui,{
     iconfont_url:'you iconfont url'
 })
 ```
+
+
+2018-09-11
+添加Selecter组件，通过传入options参数的方式设置select的选项，options结构要求为数组，组件内部自动处理更新算法
+```
+<Selecter v-modal="value" :options="[{title:'显示标题',value:'值',disabled:false}]">
+```
+添加DataPicker组件，允许进行日期选择
+```
+<DatePicker v-modal="date">
+```
+修复CheckboxGroup组件BUG，该BUG会导致layui渲染时vue还没处理完dom
