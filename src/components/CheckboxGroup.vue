@@ -4,12 +4,17 @@
     </div>
 </template>
 <script>
+const config = {
+  index: 0
+};
 export default {
   name: "CheckboxGroup",
   props: {
     name: {
       type: String,
-      default: ""
+      default: () => {
+        return "checkbox" + ++config.index;
+      }
     },
     value: {
       type: Array,
@@ -47,7 +52,9 @@ export default {
         o.checked = this.value.indexOf(e.value) > -1;
         options.push(o);
       });
-      if (window["layui"]) layui.form.render("checkbox");
+      this.$nextTick(() => {
+        layui.form.render("checkbox");
+      });
       return options;
     }
   },
@@ -73,7 +80,7 @@ export default {
   mounted() {
     //组件被加载的时候触发
     this.$nextTick(() => {
-      if (window["layui"]) layui.form.render("checkbox");
+      layui.form.render("checkbox");
     });
   }
 };
