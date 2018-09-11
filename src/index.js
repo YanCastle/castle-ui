@@ -9,6 +9,8 @@ const ButtonGroup_vue_1 = require("./components/ButtonGroup.vue");
 const Container_vue_1 = require("./components/Container.vue");
 const Button_vue_1 = require("./components/Button.vue");
 const Select_vue_1 = require("./components/Select.vue");
+const Selecter = require("./components/Selecter.vue");
+const DatePicker = require("./components/Date.vue");
 const Form_vue_1 = require("./components/Form.vue");
 const FormItem_vue_1 = require("./components/FormItem.vue");
 const Input_vue_1 = require("./components/Input.vue");
@@ -52,6 +54,8 @@ const ui = {
     Button: Button_vue_1["default"],
     Container: Container_vue_1["default"],
     Select: Select_vue_1["default"],
+    Selecter: Selecter["default"],
+    DatePicker: DatePicker["default"],
     Form: Form_vue_1["default"],
     FormItem: FormItem_vue_1["default"],
     Input: Input_vue_1["default"],
