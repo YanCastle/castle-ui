@@ -1,5 +1,5 @@
 # castle-ui
-base on layui [http://www.layui.com/doc/],基于layui
+base on layui [http://www.layui.com/doc/],基于layui.
 ## use 使用方法
 ```shell
 npm i -D castle-ui
@@ -8,9 +8,7 @@ npm i -D castle-ui
 ```typescript
 import ui from 'castle-ui'
 Vue.use(ui,{
-    server:'your layui js and css server root',
-    iconfont:'you iconfont name'
-    iconfont_url:'you iconfont url'
+    prefix:''//ui前缀，会添加到所有ui模块的前面，用于复用
 })
 ```
 

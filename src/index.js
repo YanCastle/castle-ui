@@ -120,10 +120,12 @@ export const config = {
  */
 function install(Vue, opts) {
     if (opts === void 0) {
-        opts = {};
+        opts = {
+            prefix: ''
+        };
     }
     for (var key in ui) {
-        Vue.component(key, ui[key]);
+        Vue.component((opts.prefix ? opts.prefix : '') + key, ui[key]);
     }
     Vue.prototype.$loading = loading;
     Vue.prototype.$msg = msg;
@@ -140,10 +142,7 @@ function install(Vue, opts) {
         index_1.load_css(opts.iconfont_url);
     }
     if (!window.layui) {
-        index_1.load_css('//unpkg.com/castle-ui@1.0.28/dist/css/layui.css');
-        index_1.load_js('//unpkg.com/castle-ui/dist/layui.all.js', function () {
-            init();
-        });
+        console.warn('Please use script to load layui from unpkg or other source')
     } else {
         init();
     }
