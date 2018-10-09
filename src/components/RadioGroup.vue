@@ -29,10 +29,8 @@ export default {
       }
     },
     value: {
-      type: Array,
-      default: () => {
-        return [];
-      }
+      type: String,
+      default: ""
     },
     skin: {
       type: String,
@@ -62,7 +60,7 @@ export default {
       this.options.forEach(e => {
         let o = Object.assign(e);
         o.value = o.value.toString();
-        o.checked = this.value.indexOf(e.value) > -1;
+        o.checked = this.value == o.value;
         options.push(o);
       });
       return options;
