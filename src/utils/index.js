@@ -1,5 +1,8 @@
 "use strict";
 export const __esModule = true;
+export const types = ['', 'primary', 'success', 'info', 'warning', 'danger']
+export const types2layui = ['primary', 'normal', '', 'normal', 'warm', 'danger']
+export const size = ['', 'lg', 'md', 'xs', 'sm']
 /**
  * 动态加载JS
  * @param {string} url 脚本地址
