@@ -16,8 +16,10 @@ const FormItem_vue_1 = require("./components/FormItem.vue");
 const Input_vue_1 = require("./components/Input.vue");
 const InputPassword_vue_1 = require("./components/InputPassword.vue");
 const CheckboxGroup_vue_1 = require("./components/CheckboxGroup.vue");
+const Checkbox = require('./components/Checkbox.vue')
 const Switcher_vue_1 = require("./components/Switcher.vue");
 const Radio_vue_1 = require("./components/Radio.vue");
+const RadioGroup = require("./components/RadioGroup.vue");
 const Textarea_vue_1 = require("./components/Textarea.vue");
 const Progress_vue_1 = require("./components/Progress.vue");
 const Card_vue_1 = require("./components/Card.vue");
@@ -60,7 +62,8 @@ const ui = {
     FormItem: FormItem_vue_1["default"],
     Input: Input_vue_1["default"],
     InputPassword: InputPassword_vue_1["default"],
-    // Checkbox,
+    Checkbox: Checkbox.default,
+    RadioGroup: RadioGroup.default,
     CheckboxGroup: CheckboxGroup_vue_1["default"],
     Switcher: Switcher_vue_1["default"],
     Radio: Radio_vue_1["default"],
