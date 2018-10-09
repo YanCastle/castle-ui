@@ -1,9 +1,21 @@
 <template>
     <div>
-        <input type="checkbox" :lay-skin="skin" :name="name" v-for="(v,k) in checkboxs" :key="k" :checked="v.checked" @change="change(v.value,$event)" :value="k" :title="v.title">
+      <label v-for="(v,k) in checkboxs" :key="k" :for="getId(v)">
+        <input type="checkbox"
+        :name="name" 
+        :id="getId(v)"
+        :checked="v.checked" 
+        @change="change" 
+        :value="v.value"
+        :title="v.title"
+        :class="getClass(v)"
+      >
+      {{v.title}}
+      </label>
     </div>
 </template>
 <script>
+import { rangeValidator, types, size } from "../utils";
 const config = {
   index: 0
 };
@@ -49,39 +61,47 @@ export default {
       let options = [];
       this.options.forEach(e => {
         let o = Object.assign(e);
+        o.value = o.value.toString();
         o.checked = this.value.indexOf(e.value) > -1;
         options.push(o);
-      });
-      this.$nextTick(() => {
-        layui.form.render("checkbox");
       });
       return options;
     }
   },
   methods: {
-    change(v, event) {
+    getId(v) {
+      return this.name + v.value;
+    },
+    getClass(v) {
+      let css = ["mgc"];
+      if (v.type) {
+        rangeValidator(v.type, types, v.title);
+        css.push("mgc-" + v.type);
+      }
+      if (v.size) {
+        rangeValidator(v.size, size, v.size);
+        css.push("mgc-" + v.size);
+      }
+      return css;
+    },
+    change(event) {
+      let value = Object.assign(this.value);
       if (event.target.checked) {
         //选中
-        if (this.value.indexOf(v) == -1) {
-          this.$emit("input", this.value.concat([v]));
-        }
+        value.push(event.target.value);
+        this.$emit("input", value);
       } else {
-        //取消选中
-        let i = this.value.indexOf(v);
-        if (i != -1) {
-          let c = Object.assign(this.value);
-          c.splice(i, 1);
-          this.$emit("input", c);
+        // 取消
+        let index = value.indexOf(event.target.value);
+        if (index > -1) {
+          value.splice(index, 1);
         }
+        this.$emit("input", value);
       }
-      this.$emit("change", { data: v, event });
     }
   },
   mounted() {
     //组件被加载的时候触发
-    this.$nextTick(() => {
-      layui.form.render("checkbox");
-    });
   }
 };
 </script>
