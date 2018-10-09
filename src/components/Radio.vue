@@ -1,7 +1,8 @@
 <template>
-    <input ref="radio" type="radio" :name="name" :title="title" v-model="radiovalue" :checked="value==val?'checked':''" @change="change">
+    <input ref="radio" type="radio" :name="name" :title="title" :class="classes" :checked="value==val?'checked':''" @change="change">
 </template>
 <script>
+import { rangeValidator, types, size } from "../utils";
 export default {
   name: "Radio",
   props: {
@@ -12,6 +13,20 @@ export default {
     title: {
       type: [String, Number],
       default: "Radio"
+    },
+    type: {
+      type: String,
+      default: "",
+      validator: v => {
+        return rangeValidator(v, types, "Checkbox`s type");
+      }
+    },
+    size: {
+      type: String,
+      default: "",
+      validator: v => {
+        return rangeValidator(v, size, "Checkbox`s size");
+      }
     },
     value: {
       type: [String, Number],
@@ -30,11 +45,23 @@ export default {
   mounted() {
     //组件被加载的时候触发
     this.radiovalue = this.value;
-    this.$nextTick(() => {
-      layui.form.render("radio");
-    });
+    // this.$nextTick(() => {
+    //   layui.form.render("radio");
+    // });
   },
   created() {},
+  computed: {
+    classes() {
+      let css = ["mgr"];
+      if (this.size) {
+        css.push("mgr-" + this.size);
+      }
+      if (this.type) {
+        css.push("mgr-" + this.type);
+      }
+      return css;
+    }
+  },
   watch: {
     value() {
       this.radiovalue = this.value;
