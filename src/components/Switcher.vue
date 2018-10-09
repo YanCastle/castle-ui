@@ -1,8 +1,9 @@
 <template>
-    <input type="checkbox"  name="switcher" lay-filter="switcher" lay-skin="switch" :lay-text="text" :checked="value?'checked':''" @change="change">
+    <input type="checkbox"  name="switcher" :class="classes" :checked="value?'checked':''" @change="change">
     <!-- <input type="checkbox" name="switch" lay-skin="switch"> -->
 </template>
 <script>
+import { rangeValidator, size } from "../utils";
 export default {
   name: "Switcher",
   props: {
@@ -16,6 +17,13 @@ export default {
       validator: v => {
         return v.split("|").length == 2;
       }
+    },
+    size: {
+      type: String,
+      default: "",
+      validator: v => {
+        return rangeValidator(v, size, "Switcher");
+      }
     }
   },
   data() {
@@ -26,7 +34,15 @@ export default {
       this.render();
     });
   },
-  computed: {},
+  computed: {
+    classes() {
+      let css = ["mgc-switch"];
+      if (this.size) {
+        css.push(`mgc-${this.size}`);
+      }
+      return css;
+    }
+  },
   created() {
     // 组件被创建的时候触发
   },
@@ -36,9 +52,7 @@ export default {
     }
   },
   methods: {
-    render() {
-      layui.form.render();
-    },
+    render() {},
     change(event) {
       this.$emit("input", event.target.checked);
       this.$emit("change", { event });
