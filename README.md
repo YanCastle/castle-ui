@@ -1,6 +1,12 @@
 # castle-ui
 base on layui [http://www.layui.com/doc/],基于layui.
 ## use 使用方法
+```html
+    <link rel="stylesheet" href="//unpkg.com/magic-input/dist/magic-input.min.css">
+    <link rel="stylesheet" href="//unpkg.com/castle-ui/dist/css/layui.css">
+    <script src="//unpkg.com/castle-ui/dist/layui.all.js"></script>
+
+```
 ```shell
 npm i -D castle-ui
 ```
