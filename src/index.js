@@ -164,12 +164,9 @@ export function tips(content, follow, options) {
     if (options === void 0) {
         options = {};
     }
-    if (window.layui) {
-        layui.layer.tips(content, follow, options);
-    } else {
-        setTimeout(function () {
-            tips(content, follow, options);
-        }, 200);
+    let index = layui.layer.tips(content, follow, options);
+    return () => {
+        layui.layer.close(index)
     }
 }
 /**
@@ -185,12 +182,9 @@ export function loading(icon, options) {
     if (options === void 0) {
         options = {};
     }
-    if (window.layui) {
-        layui.layer.load(icon, options);
-    } else {
-        setTimeout(function () {
-            loading(icon, options);
-        }, 200);
+    let index = layui.layer.load(icon, options);
+    return () => {
+        layui.layer.close(index)
     }
 }
 /**
@@ -210,12 +204,9 @@ export function msg(content, options, end) {
     if (end === void 0) {
         end = function () {};
     }
-    if (window.layui) {
-        layui.layer.msg(content, options, end);
-    } else {
-        setTimeout(function () {
-            msg(content, options, end);
-        }, 200);
+    let index = layui.layer.msg(content, options, end);
+    return () => {
+        layui.layer.close(index)
     }
 }
 /**
@@ -233,12 +224,9 @@ export function confirm(content, yes, cancel, options) {
     if (options === void 0) {
         options = {};
     }
-    if (window.layui) {
-        layui.layer.confirm(content, options, yes, cancel);
-    } else {
-        setTimeout(function () {
-            confirm(content, options, yes, cancel);
-        }, 200);
+    let index = layui.layer.confirm(content, options, yes, cancel);
+    return () => {
+        layui.layer.close(index)
     }
 }
 /**
@@ -255,12 +243,9 @@ export function alert(content, yes, options) {
     if (options === void 0) {
         options = {};
     }
-    if (window.layui) {
-        layui.layer.alert(content, options, yes);
-    } else {
-        setTimeout(function () {
-            alert(content, options, yes);
-        }, 200);
+    let index = layui.layer.alert(content, options, yes);
+    return () => {
+        layui.layer.close(index)
     }
 }
 export default {
