@@ -31,7 +31,7 @@ export default {
     classes() {
       let c = ["layui-btn"];
       if (this.type) {
-        c.push("layui-btn-" + type2layui[this.type]);
+        c.push("layui-btn-" + (types.indexOf(this.type)>-1?type2layui[types.indexOf(this.type)]:this.type));
       }
       if (this.size) {
         c.push(`layui-btn-${this.size}`);
