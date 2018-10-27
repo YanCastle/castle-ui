@@ -4,7 +4,7 @@
     </button>
 </template>
 <script>
-import { rangeValidator, types, type2layui, size } from "../utils";
+import { rangeValidator, types, types2layui, size } from "../utils";
 export default {
   name: "Button",
   props: {
@@ -31,7 +31,12 @@ export default {
     classes() {
       let c = ["layui-btn"];
       if (this.type) {
-        c.push("layui-btn-" + (types.indexOf(this.type)>-1?type2layui[types.indexOf(this.type)]:this.type));
+        c.push(
+          "layui-btn-" +
+            (types.indexOf(this.type) > -1
+              ? types2layui[types.indexOf(this.type)]
+              : this.type)
+        );
       }
       if (this.size) {
         c.push(`layui-btn-${this.size}`);
